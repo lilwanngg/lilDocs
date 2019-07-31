@@ -1,0 +1,106 @@
+#signin, #signup {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid lightgray;
+    width: 350px;
+    height: 400px;
+    border-radius: 8px;
+    padding: 40px;
+    justify-content: space-around;
+}
+
+#signin a {
+    text-decoration: none;
+    color: #4386fc;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#signup a {
+    text-decoration: none;
+    color: #4386fc;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#signin input {
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    padding: 6px 8px;
+    font-size: 16px;
+    display: flex;
+    align-content: flex-end;
+    width: 80%;
+    margin: 20px;
+}
+
+
+#signup input {
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    padding: 6px 8px;
+    font-size: 13px;
+    display: flex;
+    align-content: flex-end;
+    width: 80%;
+    margin: 20px;
+}
+
+#signin button:hover {
+    cursor: pointer
+}
+
+#signin input:focus {
+    outline: none;
+    border: 2px solid #4386fc;
+}
+
+#signin h1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+#signup h1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+#signin button {
+    position: absolute;
+    background: #4386fc;
+    color: white; 
+    top: 395px;
+    left: 70%;
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+#signup button {
+    position: absolute;
+    background: #4386fc;
+    color: white; 
+    top: 395px;
+    left: 70%;
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+
+.hidden {
+    visibility: hidden;
+}
