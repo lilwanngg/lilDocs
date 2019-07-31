@@ -21,17 +21,6 @@
     margin: 0 0 0 0;
 }
 
-.typewriter {
-  position: relative;
-  bottom: 40px;
-  text-shadow: 1px 1px rgb(104, 104, 104);
-  width: 660px;
-  color: white;
-  font-weight: 100;
-  font-size: 44px;
-  z-index: 50;
-}
-
 #splash-personal {
     font-size: 34px;
     font-weight: 100;
@@ -76,6 +65,17 @@
 }
 
 /* typewriter stuff */
+
+.typewriter {
+  position: relative;
+  bottom: 40px;
+  text-shadow: 1px 1px rgb(104, 104, 104);
+  width: 660px;
+  color: white;
+  font-weight: 100;
+  font-size: 44px;
+  z-index: 50;
+}
 
 .typewriter p {
   overflow: hidden;

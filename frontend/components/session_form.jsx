@@ -36,17 +36,18 @@ class SessionForm extends React.Component {
     if (formType === "signin") {
       return(
         <div id="signin">
+          <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
           <h1>Sign In</h1>
-          <ul>{errs}</ul>
-          <form>
-            <div id="email">
-              <label>Email</label>
-              <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
-              
+          <h3>Use an existing account</h3>
+          <form className="signinform">
+            <div className="labelinput">
+              <label className="emaillabel">Email</label>
+              <input className="emailinput" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email"/>
             </div>
-            <label>Password
+            <ul>{errs}</ul>
+            {/* <label>Password
               <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
-            </label>
+            </label> */}
             <button onClick={this.handleSubmit}>Next</button>
           </form>
             <Link to="/signup" >Create account</Link>

@@ -19,6 +19,8 @@
     color: #4386fc;
     font-size: 14px;
     font-weight: 500;
+    position: relative;
+    bottom: 6px;
 }
 
 #signup a {
@@ -26,13 +28,14 @@
     color: #4386fc;
     font-size: 14px;
     font-weight: 500;
+
 }
 
 #signin input {
     height: 32px;
     border-radius: 3px;
     border: 1px solid lightgray;
-    padding: 6px 8px;
+    padding: 6px 14px;
     font-size: 16px;
     display: flex;
     align-content: flex-end;
@@ -62,16 +65,31 @@
     border: 2px solid #4386fc;
 }
 
+#signin input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
 #signin h1 {
     text-align: center;
     font-weight: 500;
     font-size: 26px;
+    position: relative;
+    bottom: 40px;
 }
 
 #signup h1 {
     text-align: center;
     font-weight: 500;
     font-size: 26px;
+
+}
+
+#signin h3 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    bottom: 60px;
 }
 
 #signin button {
@@ -85,6 +103,11 @@
     border: none;
     border-radius: 3px;
     font-size: 14px;
+}
+
+#signin button:hover {
+    background: #5e99fe;
+    box-shadow: 1px 1px #4386fc;
 }
 
 #signup button {
@@ -103,4 +126,36 @@
 
 .hidden {
     visibility: hidden;
+}
+
+.labelinput {
+    position: relative;
+    bottom: 100px;
+}
+
+.labelinput label{
+    opacity: 0;
+    position: relative;
+    top: 32px;
+    left:30px;
+    padding: 2px;
+    background-color:white;
+    font-size: 12px;
+    color: #4386fc;
+}
+
+#signin p img {
+    display: block;
+    margin: auto;
+    height: 40px;
+    width: 80px;
+    object-fit: contain;
+    position: relative;
+    bottom: 20px;
+}
+
+
+.emaillabel ~ .emailinput:focus {
+    opacity: 100%;
+
 }
