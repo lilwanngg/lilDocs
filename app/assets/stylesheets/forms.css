@@ -133,12 +133,13 @@
     margin-bottom: 50px;
 }
 
-.demo button {
+.demo a {
     background: none;
     border: none;
     color: #4386fc;
     font-size: 15px;
     padding: 0px 0px;
+    cursor: pointer;
 }
 
 /* PASSWORD PAGE SPECIFIC PROPERTIES */

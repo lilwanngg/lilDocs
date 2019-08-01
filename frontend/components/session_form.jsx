@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
                 <input className="emailinput" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required />
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
-              <div className="demo">Don't want to make an account? Log in as the <button onClick={this.handleLinkClick}>Demo User.</button></div>
+              <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
               <div className="formfooter">
                 <Link to="/signup" >Create account</Link>
                 <input className="nextbutton" type="submit" value="Next" />
@@ -83,7 +83,7 @@ class SessionForm extends React.Component {
                 <input className="passwordinput" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Enter your password" required/>
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
-              <div className="demo">Don't want to make an account? Log in as the <button onClick={this.handleLinkClick}>Demo User.</button></div>
+              <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
               <div className="formfooter">
                 <input className="nextbutton" type="submit" value="Next" />
               </div>
@@ -116,7 +116,7 @@ class SessionForm extends React.Component {
               <div className="labelinput" id="label4" >
                   <label>Password</label>
                 <input id="input4" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password" required/>
-                <div className="demo">Don't want to make an account? Log in as the <button onClick={this.handleLinkClick}>Demo User.</button></div>
+                <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="formfooter">
