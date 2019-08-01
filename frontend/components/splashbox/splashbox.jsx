@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarContainer from '../navbar/splash_navbar_container'
+import Footer from '../footer'
 
 const Splashbox = () => {
 
@@ -20,6 +21,7 @@ const Splashbox = () => {
                 <button><Link to="/signin">Go to lilDocs</Link></button>
             </div>
         </div>
+        <Footer />
         </>
     );
 }

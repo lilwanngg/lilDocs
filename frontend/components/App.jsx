@@ -5,6 +5,7 @@ import CheckEmailContainer from './check_email_container'
 import SignupFormContainer from './signup_form_container'
 import SplashboxContainer from './splashbox/splashbox_container'
 import LoginFormContainer from './login_form_container'
+import Footer from './footer'
 import { AuthRoute, UserRoute } from '../util/route_utils'
 
 const App = () => (

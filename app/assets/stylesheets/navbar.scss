@@ -37,3 +37,19 @@
     background-color: gray;
     border: none;
 }
+
+.follows {
+    padding: 30px 40px 50px 30px;
+    border: 1px solid lightgray;
+    background: rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+}
+
+.smallicons {
+    position: relative;
+    top: 3px;
+    object-fit: contain;
+    height: 40px;
+    width: 40px;
+}

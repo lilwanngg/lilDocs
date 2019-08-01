@@ -36,7 +36,7 @@
     font-weight: 500;
     font-size: 26px;
     position: relative;
-    bottom: 40px;
+    bottom: 10px;
 }
 
 .form h3 {
@@ -44,7 +44,7 @@
     font-weight: 500;
     font-size: 16px;
     position: relative;
-    bottom: 60px;
+    bottom: 10px;
 }
 
 .labelinput label {
@@ -123,6 +123,23 @@
     cursor: pointer;
 }
 
+#checkemail .labelinput, #signin .labelinput {
+    top: -20px;
+}
+
+
+.demo {
+    height: 40px;
+    margin-bottom: 50px;
+}
+
+.demo button {
+    background: none;
+    border: none;
+    color: #4386fc;
+    font-size: 15px;
+    padding: 0px 0px;
+}
 
 /* PASSWORD PAGE SPECIFIC PROPERTIES */
 
@@ -131,7 +148,6 @@
     font-weight: 500;
     font-size: 16px;
     position: relative;
-    bottom: 60px;
     padding: 2px 15px;
     border-radius: 25px;
     border: 1px solid black;
@@ -187,6 +203,7 @@
 #signup h1 {
     margin-top: 10px;
     font-size: 22px;
+    bottom: 40px;
 }
 
 #signup .labelinput label {
@@ -278,22 +295,27 @@
 }
 
 
+#signup, form {
+    position: relative;
+    top: 15px;
+}
 
-/* TESTING */
+#signup p img {
+    top: 5px;
+}
 
-/* .labelinput input:not(:placeholder-shown) {
-    outline: none;
-    border: 2px solid gray;
-    font-size: 12px;
+#signup h1 {
+    bottom: 20px
+}
 
-} */
+#signup .demo {
+    margin: 0px 0px;
+    position: relative;
+    top: -35px;
+}
 
-/* .labelinput input:not(:focus) ~ label {
-    opacity: 1;
-    color: blue;
-    font-size: 12px;
-    top: 2px;
-    z-index: 15;
-
-} */
+#signup .formfooter {
+    top: 5px;
+    margin-bottom: 30px;
+}
 
