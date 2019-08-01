@@ -9,12 +9,10 @@ import { AuthRoute, UserRoute } from '../util/route_utils'
 
 const App = () => (
     <div>
-        <Switch>
-            <UserRoute path="/verify" component={LoginFormContainer} />
-            <AuthRoute path="/signin" component={CheckEmailContainer} />
-            <AuthRoute path="/signup" component={SignupFormContainer} />
-            <Route path="/about" component={SplashboxContainer} />
-        </Switch>
+        <UserRoute path="/verify" component={LoginFormContainer} />
+        <AuthRoute path="/signin" component={CheckEmailContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Route path="/about" component={SplashboxContainer} />
     </div>
 );
 

@@ -10,7 +10,14 @@ class SessionForm extends React.Component {
       email: "",
       password: ""
     };
+    debugger
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  
+  componentDidMount () {
+    this.setState(this.props.loginUser, () => {
+      debugger
+    })
   }
   
   handleInput(type) {
@@ -21,9 +28,14 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
+    this.props.processForm(user).then( (res) => {
+      if (this.props.match.path === "/signin") {
+        this.props.history.push("/verify")
+      } else {
+        this.props.history.push("/about")
+      }
+    })
   }
 
   render() {
@@ -35,6 +47,7 @@ class SessionForm extends React.Component {
     })
     
     if (formType === "checkemail") {
+      debugger
       return(
         <div className="outer">
           <div className="form" id="checkemail">
@@ -58,6 +71,7 @@ class SessionForm extends React.Component {
 
       )
     } else if (formType === "signin") {
+      debugger
       return(
         <div className = "outer" >
           <div className="form" id="signin">
@@ -80,14 +94,15 @@ class SessionForm extends React.Component {
     } else {
       return (
         <div className="outer">
+          <div className="wrapper">
           <div className="form" id="signup">
             <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
             <h1>Create your lilDocs account</h1>
             <form className="signup">
                 <div className="names">
                   <div className="labelinput">
-                    <label>First name</label>
-                    <input type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} placeholder="First name"/>
+                    <label id="label1">First name</label>
+                  <input id="input1" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} placeholder="First name"/>
                   </div>
                   <div className="labelinput">
                     <label id="label2">Last name</label>
@@ -108,6 +123,10 @@ class SessionForm extends React.Component {
               </div>
             </form>
             <ul>{errs}</ul>
+            </div>
+            <div >
+              <p><img id="createlogo" src="/assets/createlogo.png" /></p>
+            </div>
           </div>
         </div>
       )

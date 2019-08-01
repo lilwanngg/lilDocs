@@ -19,7 +19,7 @@ const Auth = ({ loggedIn, path, component: Component, exact }) => (
 const UserCheck = ({ checkUser, path, component: Component, exact }) => (
     <Route path={path} exact={exact}
         render={props => (
-            checkUser ? (<Redirect to="/verify" />) : (<Component {...props} />)
+            !checkUser ? (<Redirect to="/signin" />) : (<Component {...props} />)
         )} />
 )
 

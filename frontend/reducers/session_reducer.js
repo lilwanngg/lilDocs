@@ -11,20 +11,16 @@ const sessionReducer = (state = _nullSession, action) => {
     let newState
     switch (action.type) {
         case RECIEVE_CURRENT_USER:
-            newState = merge({}, state)
-            delete newState.session.loginuser
             user = action.user;
-            return merge({}, state, { user });
+            return { id: user.id };
         case LOGOUT_CURRENT_USER:
             return _nullSession
         case RECEIVE_ERRORS:
             return merge({}, state, { session: action.errors });
         case VERIFY_USER:
-            // debugger
             user = action.user;
             newState = merge({}, state, { loginuser: user });
-            // debugger
-            return ( newState.session.loginuser )
+            return newState
         default:
             return state;
     }
