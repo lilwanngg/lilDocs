@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   validates :email, :password_digest, :session_token, :first_name, :last_name, presence: true
-
-  validates :email, :session_token, uniqueness: true
+  validates :email, :session_token, uniqueness: { message: "has been taken, please try another" }
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   attr_reader :password

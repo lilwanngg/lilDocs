@@ -1,6 +1,6 @@
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
-import { findEmail } from '../actions/session_actions';
+import { findEmail, receiveErrors } from '../actions/session_actions';
 
 const msp = (state, ownProps) => {
     return {
@@ -12,6 +12,7 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
     return {
         processForm: user => dispatch(findEmail(user)),
+        removeErrors: () => dispatch(receiveErrors([]))
     }
 }
 

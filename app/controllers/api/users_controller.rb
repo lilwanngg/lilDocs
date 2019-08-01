@@ -25,7 +25,7 @@ class Api::UsersController < ApplicationController
       if @user
         render :show
       else
-        render json: @user.errors.full_messages, status: 404
+        render json: [" Email could not be found"], status: 404
       end
   end
 

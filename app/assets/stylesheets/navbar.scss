@@ -17,4 +17,23 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userid {
+    display: flex;
+    align-items: center;
+}
+
+.userid button {
+    height: 20px;
+    align-self: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 3px;
+    color: white;
+    background-color: gray;
+    border: none;
 }

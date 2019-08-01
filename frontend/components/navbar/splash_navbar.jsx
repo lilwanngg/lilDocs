@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({ user, logout}) => {
     const display = user ? (
-        <>
-            <p>Hello, {user.first_name}</p>
+        <div className="userid">
+            <p>{user.first_name} {user.last_name}</p>
             <button onClick={logout}>Log Out</button>
-        </>
+        </div>
     ) : (
             <>
             </>

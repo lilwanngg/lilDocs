@@ -1,5 +1,5 @@
 import { merge } from 'lodash'
-import { RECIEVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, VERIFY_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, VERIFY_USER } from '../actions/session_actions';
 
 const _nullSession = {
     id: null
@@ -10,7 +10,7 @@ const sessionReducer = (state = _nullSession, action) => {
     let user
     let newState
     switch (action.type) {
-        case RECIEVE_CURRENT_USER:
+        case RECEIVE_CURRENT_USER:
             user = action.user;
             return { id: user.id };
         case LOGOUT_CURRENT_USER:

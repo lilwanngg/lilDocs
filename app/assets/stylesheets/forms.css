@@ -107,7 +107,7 @@
     justify-content: space-between;
 }
 
-.form button {
+.form .nextbutton {
     background: #4386fc;
     color: white; 
     width: 80px;
@@ -117,7 +117,7 @@
     font-size: 14px;
 }
 
-.form button:hover {
+.form .nextbutton:hover {
     background: #498bfe;
     box-shadow: 1px 1px #4386fc;
     cursor: pointer;
@@ -137,6 +137,14 @@
     border: 1px solid black;
     width: max-content;
     align-self: center;
+}
+
+#person-logo {
+    position: relative;
+    top: 3px;
+    right: 5px;
+    height: 22px;
+    object-fit: contain;
 }
 
 #signin .formfooter {
@@ -212,11 +220,6 @@
     margin: 0px 0px;
 
 }
-/* 
-#label3 > label,
-#label4 > label {
-    top: -55px;
-} */
 
 #input2 {
     margin-left: 16px;
@@ -255,6 +258,24 @@
     border-radius: 8px;
 }
 
+.errorsdiv {
+    height: 30px;
+}
+
+.errors {
+    font-size: 13px;
+    color: rgb(225, 3, 3);
+    margin-left: 22px;
+    margin-top: 5px;
+}
+
+#signup .errors {
+    position: relative;
+    bottom: 30px;
+    left: -15px;
+    display: flex;
+    flex-direction: column
+}
 
 
 
