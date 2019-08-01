@@ -25,7 +25,7 @@ export const checkEmail = (user) => ({
 })
 
 export const findEmail = (input) => dispatch => {
-    debugger
+    // debugger
     return SessionsUtil.findEmail(input.email)
         .then((user => { 
             debugger
@@ -40,7 +40,7 @@ export const signup = user => dispatch => {
 }
 
 export const login = user => {
-    debugger
+    // debugger
     return dispatch => {
 
         return SessionsUtil.login(user)

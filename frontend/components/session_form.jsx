@@ -21,11 +21,9 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
+    // debugger
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(
-      res => console.log(res)
-    );
+    this.props.processForm(user)
   }
 
   render() {
@@ -40,6 +38,7 @@ class SessionForm extends React.Component {
       return(
         <div className="outer">
           <div className="form" id="checkemail">
+            
             <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
             <h1>Sign In</h1>
             <h3>Use an existing account</h3>

@@ -20,10 +20,10 @@ const sessionReducer = (state = _nullSession, action) => {
         case RECEIVE_ERRORS:
             return merge({}, state, { session: action.errors });
         case VERIFY_USER:
-            debugger
+            // debugger
             user = action.user;
             newState = merge({}, state, { loginuser: user });
-            debugger
+            // debugger
             return ( newState.session.loginuser )
         default:
             return state;
