@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
         <div className="outer">
           <div className="form" id="checkemail">
             
-            <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
+            <p><img id="lil-docs-logo" src={window.lilDocsURL} /></p>
             <h1>Sign In</h1>
             <h3>Use an existing account</h3>
             <form >
@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
       return(
         <div className = "outer" >
           <div className="form" id="signin">
-            <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
+            <p><img id="lil-docs-logo" src={window.lilDocsURL} /></p>
             <h1>Welcome</h1>
             <div className="currentemail">{this.state.email}</div>
             <form>
@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
         <div className="outer">
           <div className="wrapper">
           <div className="form" id="signup">
-            <p><img id="lil-docs-logo" src="/assets/lil_docs_logo.png" /></p>
+              <p><img id="lil-docs-logo" src={window.lilDocsURL} /></p>
             <h1>Create your lilDocs account</h1>
             <form className="signup">
                 <div className="names">
@@ -125,7 +125,7 @@ class SessionForm extends React.Component {
             <ul>{errs}</ul>
             </div>
             <div >
-              <p><img id="createlogo" src="/assets/createlogo.png" /></p>
+              <p><img id="createlogo" src={window.createLogoURL} /></p>
             </div>
           </div>
         </div>
