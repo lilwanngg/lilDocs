@@ -1,11 +1,20 @@
-#logo {
-    color: gray;
-    font-size: 32px;
-    font-weight: 800;
-    padding: 5px 15px 5px 25px;
+.logo {
+    color: rgb(97, 97, 97);
+    font-size: 28px;
+    font-weight: 400;
+    padding: 10px 15px 10px 35px;
+    z-index: 2;
 }
 
-#splash-nav {
-    border: 1px solid lightgray; 
+#long-center {
+    background-image: url(austin-skyline-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.splash-nav-bar {
+    background: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }

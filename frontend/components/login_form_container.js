@@ -4,6 +4,7 @@ import { login } from '../actions/session_actions';
 
 const msp = (state, ownProps) => {
     return {
+        loginUser: state.session.loginuser,
         errors: state.errors.session,
         formType: "signin"
     }

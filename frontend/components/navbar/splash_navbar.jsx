@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const Navbar = ({ user, logout}) => {
     const display = user ? (
         <>
-            
             <p>Hello, {user.first_name}</p>
             <button onClick={logout}>Log Out</button>
         </>
@@ -14,15 +13,15 @@ const Navbar = ({ user, logout}) => {
         )
 
     return (
-        <header className="splash-nav-bar">
-            <h1 id="logo">lilDocs</h1>
-            <div id="splash-nav">
+        <>
+        <div className="splash-nav-bar">
+            <h1 className="logo">lilDocs</h1>
+            {display}
+        </div>
 
-                {display}
 
-            </div>
-
-        </header>
+    
+        </>
     );
 }
 
