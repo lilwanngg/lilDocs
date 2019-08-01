@@ -7,7 +7,7 @@
 }
 
 #long-center {
-    background-image: url(austin-skyline-2.jpg);
+    background-image: url({window.austinSkylineURL});
     background-repeat: no-repeat;
     background-size: cover;
 }
