@@ -1,5 +1,5 @@
 #long-center {
-  height: 800px;
+  height: 700px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -31,7 +31,6 @@
     padding: 10px 70px;
     font-weight: 300;
     margin-bottom: 20px;
-
 }
 
 #splashbox button {
@@ -79,17 +78,29 @@
 
 .typewriter p {
   overflow: hidden;
-  border-right: .15em solid rgb(254, 234, 125);
+  border-right: .10em solid rgb(254, 234, 125);
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: .05em;
   animation: 
-    typing 2.5s steps(25, end),
+    typing 4s steps(28, end),
     blink-caret .75s step-end infinite;
+
+
 }
+/* .typewriter #lillian {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+  display: block;
+  position: relative;
+  bottom: 50px;
+  margin-inline-end: 100%
+
+} */
 
 @keyframes typing {
-  from { width: 0 }
+  from { width: 3% }
   to { width: 100% }
 }
 
@@ -97,4 +108,3 @@
   from, to { border-color: transparent }
   0% { border-color: rgb(254, 234, 125); }
 }
-

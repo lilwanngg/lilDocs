@@ -9,7 +9,9 @@ const Splashbox = () => {
         <NavbarContainer />
         <div id='long-center'>
             <div className="typewriter">
-                <p>Create meaningful documents</p>
+                <p>Create meaningful documents
+                </p>
+                <div id="lillian"></div>
             </div>
             <div id="splashbox">
                 <p id="splash-personal">Personal</p>

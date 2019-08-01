@@ -1,8 +1,8 @@
-#logo {
-    color: rgb(114, 114, 114);
-    font-size: 32px;
+.logo {
+    color: rgb(97, 97, 97);
+    font-size: 28px;
     font-weight: 400;
-    padding: 5px 15px 5px 25px;
+    padding: 10px 15px 10px 35px;
     z-index: 2;
 }
 
@@ -12,7 +12,8 @@
     background-size: cover;
 }
 
-#splash-nav-bar {
+.splash-nav-bar {
+    background: white;
     position: -webkit-sticky;
     position: sticky;
     top: 0;

@@ -14,9 +14,11 @@ const Navbar = ({ user, logout}) => {
 
     return (
         <>
-        <div id="splash-nav-bar">
-            <h1 id="logo">lilDocs</h1>
+        <div className="splash-nav-bar">
+            <h1 className="logo">lilDocs</h1>
+            {display}
         </div>
+
 
     
         </>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :docs, only: [:create, :show, :index, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
+    
+    get "/verify_user", to: "users#verify_user"
+
 
   end
   

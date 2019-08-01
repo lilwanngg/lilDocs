@@ -7,6 +7,7 @@ export const signup = (user) => {
 }
 
 export const login = (user) => {
+    debugger
     return $.ajax({
         method: "POST",
         url: 'api/session',
@@ -18,5 +19,13 @@ export const logout = () => {
     return $.ajax({
         method: "DELETE",
         url: 'api/session'
+    })
+}
+
+export const findEmail = (email) => {
+    return $.ajax({
+        method: "GET",
+        url: "api/verify_user",
+        data: { email }
     })
 }
