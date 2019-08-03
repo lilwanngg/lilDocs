@@ -73,6 +73,7 @@
     text-align: center;
     cursor: pointer;
     line-height: 1.6;
+    user-select: none;
 }
 
 .docBackground {

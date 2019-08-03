@@ -1,5 +1,5 @@
 .account-dropdown {
-    /* display: none; */
+    display: none !important;
     position: absolute;
     top: 70px;
     right: 25px;
@@ -35,7 +35,7 @@
 }
 
 .show {
-    display: block;
+    display: block !important;
 }
 
 .back-to-docs {
@@ -46,6 +46,7 @@
     border-radius: 3px;
     color: white;
     padding: 5px 15px;
+    text-decoration: none;
 }
 
 .account-info p:nth-child(2) {
@@ -55,11 +56,16 @@
 }
 
 .account-info p {
-    margin-top: 0px;
+    margin-top: -15px;
 }
 
 .account-info p:nth-child(1) {
-    margin-bottom: 0px;
+    margin-top: -35px;
+}
+
+.account-info a {
+    position: relative;
+    top: 10px;
 }
 
 #dropdown-btn:hover {
@@ -92,4 +98,10 @@
     background-color: rgb(246, 246, 248);
     color: rgb(107, 107, 107);
     outline: none;
+}
+
+#nav-logo img {
+    margin-top: 3px;
+    height: 17px;
+    object-fit: contain;
 }

@@ -1,16 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { ShareButon } from './share_button'
+// import { ShareButton } from './share_button'
 import { Link } from 'react-router-dom'
 import { logout } from "../../actions/session_actions"
 
 class DocNavBar extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.doc
-        this.state.clicked = true
+        this.state = {doc: this.props.doc, clicked: false}
         this.handlePicClick = this.handlePicClick.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     update(field) {
@@ -19,8 +19,25 @@ class DocNavBar extends React.Component {
         }
     }
 
+    componentWillMount () {
+        document.addEventListener("mousedown", this.handleClick, false)
+    }
+
+    componentWillUnmount () {
+        document.removeEventListener("mousedown", this.handleClick, false)
+    }
+
+    handleClick (e) {
+        if (this.state.clicked && ((this.dropdownRef.contains(e.target)))) {
+            return
+        } else if (!this.state.clicked && !this.iconRef.contains(e.target)) {
+            return
+        }
+        this.handlePicClick();
+    }
+
     handlePicClick() {
-        
+        this.setState({clicked: !(this.state.clicked)})
     }
 
     handleLogout() {
@@ -28,21 +45,26 @@ class DocNavBar extends React.Component {
     }
 
     render() {
-        const { title } = this.state
+        const { doc, clicked } = this.state
         const { first_name, last_name, email  } = this.props.user
+        let topLogo = doc ? (
+            <input className={`doctitle ${doc.title === "Untitled" ? "default-title" : ""} `} type="text" value={doc.title} onChange={this.update('title')} />
+        ) : (
+            <p id="nav-logo"><img src={window.lilDocsURL}/></p>
+        )
         return(
             < div className="doc-nav-bar sticky-nav" >
                 <div className="doc-nav-left">
                     <Link to="/documents" className="doc-index-btn"><img className="doclogo" src={window.docURL} /></Link>
-                    <input className={`doctitle ${title === "Untitled" ? "default-title" : ""} `} type="text" value={title} onChange={this.update('title')}/>
+                    {topLogo}
                 </div>
                 <div className="doc-nav-right">
                     {/* <ShareButton /> */}
                     {/* <button>&#128274; Share</button> */}
-                    <div className="initialsCircle" id="dropdown-btn">
+                    <div ref={iconRef => this.iconRef = iconRef} className="initialsCircle" id="dropdown-btn">
                         {first_name[0].toUpperCase()}
                     </div>
-                    <div className={`account-dropdown`}>
+                    <div ref={dropdownRef => this.dropdownRef = dropdownRef} className={`account-dropdown ${clicked ? "show" : ""}`}>
                         <div className="tophalf">
                             <div className="initialsCircle">
                                 {first_name[0].toUpperCase()}
@@ -50,7 +72,7 @@ class DocNavBar extends React.Component {
                             <div className="account-info">
                                 <p>{first_name} {last_name}</p>
                                 <p>{email}</p>
-                                <button className="back-to-docs">Back to Docs</button>
+                                <Link to="/documents" className="back-to-docs">Back to Docs</Link>
                             </div>
                         </div>
                         <div className="signout-bar">
