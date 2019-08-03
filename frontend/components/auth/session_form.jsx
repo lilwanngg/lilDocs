@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
       if (this.props.match.path === "/signin") {
         this.props.history.push("/verify")
       } else {
-        this.props.history.push("/about")
+        this.props.history.push("/documents")
       }
     })
   }
@@ -45,6 +45,7 @@ class SessionForm extends React.Component {
   render() {
     const { formType, errors } = this.props
     const errs = errors.map( (err, idx) => { return (<li key={`err${idx}`}>{err}</li>) })
+    // checkemail if in the initial email page
     if (formType === "checkemail") {
       return(
         <div className="outer">
@@ -54,8 +55,8 @@ class SessionForm extends React.Component {
             <h3>Use an existing account</h3>
             <form onSubmit={this.handleSubmit}>
               <div className="labelinput">
-                <label className="email">Email</label>
-                <input className="emailinput" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required />
+                <label className={`email ${errs.length ? "errored-label" : ""}`}>Email</label>
+                <input className={`emailinput ${errs.length ? "errored-bord" : "" }`} type="text" value={this.state.email} autoocus="" onChange={this.handleInput('email')} placeholder="Email" required />
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
@@ -68,6 +69,7 @@ class SessionForm extends React.Component {
         </div>
 
       )
+      // at this form if the email entered previously is in the database
     } else if (formType === "signin") {
       return(
         <div className = "outer" >
@@ -79,8 +81,8 @@ class SessionForm extends React.Component {
               </div>
             <form onSubmit={this.handleSubmit}>
               <div className="labelinput">
-                <label className="password">Enter your password</label>
-                <input className="passwordinput" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Enter your password" required/>
+                <label className={`password ${errs.length ? "errored-label" : ""}`}>Enter your password</label>
+                <input className={`passwordinput ${errs.length ? "errored-bord" : ""}`} type="password" value={this.state.password} autofocus="" onChange={this.handleInput('password')} placeholder="Enter your password" required/>
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
@@ -91,6 +93,7 @@ class SessionForm extends React.Component {
           </div>
         </div>
       )
+      // for the case that a user is signing up
     } else {
       return (
         <div className="outer">
@@ -100,22 +103,22 @@ class SessionForm extends React.Component {
             <h1>Create your lilDocs account</h1>
               <form className="signup" onSubmit={this.handleSubmit}>
                 <div className="names">
-                  <div className="labelinput">
+                  <div className="labelinput" id="li1">
                     <label id="label1">First name</label>
-                  <input id="input1" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} placeholder="First name" required/>
+                  <input id="input1" type="text" value={this.state.first_name} autofocus="" onChange={this.handleInput('first_name')} placeholder="First name" required/>
                   </div>
-                  <div className="labelinput">
+                  <div className="labelinput" id="li2">
                     <label id="label2">Last name</label>
                     <input id="input2" type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} placeholder="Last name" required/>
                   </div>
                 </div>
-              <div className="labelinput" id="label3">
-                  <label>Email</label>
-                <input id="input3" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required/>
+                <div className="labelinput" id=" li3">
+                  <label className={`${errors.some(el => el.includes("Email")) ? "errored-label" : ""}`}>Email</label>
+                  <input className={`${errors.some(el => el.includes("Email")) ? "errored-bord" : ""}`} id="input3" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required/>
               </div>
-              <div className="labelinput" id="label4" >
-                  <label>Password</label>
-                <input id="input4" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password" required/>
+              <div className="labelinput" id="li4" >
+                  <label className={`${errors.some(el => el.includes("Password")) ? "errored-label" : ""}`}>Password</label>
+                  <input className={`${errors.some(el => el.includes("Password")) ? "errored-bord" : ""}`} id="input4" type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Password" required/>
                 <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>

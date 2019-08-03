@@ -39,7 +39,6 @@ export const signup = user => dispatch => {
 
 export const login = user => {
     return dispatch => {
-        debugger
         return SessionsUtil.login(user)
             .then(
                 (user => { dispatch(receiveCurrentUser(user)) }),

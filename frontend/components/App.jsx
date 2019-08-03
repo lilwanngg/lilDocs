@@ -1,12 +1,14 @@
 import React from 'react';
 import NavbarContainer from './navbar/splash_navbar_container'
 import { Route, Switch } from 'react-router-dom'
-import CheckEmailContainer from './check_email_container'
-import SignupFormContainer from './signup_form_container'
+import CheckEmailContainer from './auth/check_email_container'
+import SignupFormContainer from './auth/signup_form_container'
 import SplashboxContainer from './splashbox/splashbox_container'
-import LoginFormContainer from './login_form_container'
-import Footer from './footer'
-import { AuthRoute, UserRoute } from '../util/route_utils'
+import LoginFormContainer from './auth/login_form_container'
+import DocumentIndexContainer from './documents/document_index_container'
+import DocShow from './documents/document_show'
+import { AuthRoute, UserRoute, ProtectedRoute } from '../util/route_utils'
+
 
 const App = () => (
     <div>
@@ -14,6 +16,11 @@ const App = () => (
         <AuthRoute path="/signin" component={CheckEmailContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
         <Route path="/about" component={SplashboxContainer} />
+    <Switch>
+        <ProtectedRoute path="/documents/:documentId" component={DocShow} />
+        <ProtectedRoute path="/documents" component={DocumentIndexContainer} />
+    </Switch>
+
     </div>
 );
 
