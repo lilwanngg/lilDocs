@@ -1,4 +1,95 @@
 .account-dropdown {
-    display: relative;
-    
+    /* display: none; */
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 20px 1px rgb(228, 228, 228);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    border-radius: 2px;
+    background: white;
+}
+
+.tophalf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-dropdown .initialsCircle {
+    width: 100px;
+    height: 100px;
+    font-size: 55px;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-info {
+    font-weight: 600;
+    color: black;
+    font-size: 13px;
+}
+
+.show {
+    display: block;
+}
+
+.back-to-docs {
+    background: #4386fc;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #2c78fa;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 15px;
+}
+
+.account-info p:nth-child(2) {
+    color: rgb(142, 142, 142);
+    font-weight: 400;
+
+}
+
+.account-info p {
+    margin-top: 0px;
+}
+
+.account-info p:nth-child(1) {
+    margin-bottom: 0px;
+}
+
+#dropdown-btn:hover {
+    box-shadow: 0px 0px 1px 4px rgb(232, 232, 232);
+}
+
+.doc-index-btn:focus {
+    box-shadow: 0px 0px 1px 20px rgb(232, 232, 232);
+}
+
+.signout-bar {
+    border: 1px solid rgb(214, 213, 213);
+    padding: 10px;
+    position: relative;
+    top: 21px;
+    margin-left: -21px;
+    margin-right: -21px;
+    background: rgb(245, 245, 245);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signout-bar button {
+    border: 1px solid rgb(214, 213, 213);
+    margin-right: 10px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 10px;
+    background-color: rgb(246, 246, 248);
+    color: rgb(107, 107, 107);
+    outline: none;
 }

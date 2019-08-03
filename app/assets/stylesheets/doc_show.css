@@ -4,6 +4,9 @@
     align-items: center;
     height: 64px;
     border-bottom: 1px solid rgb(234, 234, 234);
+    position: sticky;
+    top: 0;
+    background: white;
 }
 
 .doc-nav-right {
@@ -15,12 +18,16 @@
     margin-left: 10px;
 }
 
+.docBackground {
+    background-color: rgb(248, 249, 251);
+}
+
 .docSpace {
     resize: none;
     font-size: 12px;
     padding: 100px 80px;
     margin-top: 10px;
-    box-shadow: 0px 0px 2px 1px rgb(231, 230, 230);
+    box-shadow: 0px 0px 4px 1px rgb(231, 230, 230);
     border: 1px solid rgb(231, 230, 230);
 }
 
@@ -28,8 +35,17 @@
     outline: none;
 }
 
+.doc-nav-left input {
+    border-radius: 5px;
+    padding-left: 10px;
+    width: max-content;
+    outline: none;
+}
 .doc-nav-left {
     display: flex;
+}
+.doc-nav-left input:focus {
+    border: 2px solid #4386fc;
 }
 
 .doctitle {
@@ -45,24 +61,24 @@
 }
 
 .initialsCircle {
-    margin: 0px 0px;
     margin-right: 30px;
-    width: 30px;
-    height: 30px;
+    width: 33px;
+    height: 33px;
     background: rgb(88, 163, 209);
     border-radius: 50%;
-}
-
-.initialsCircle p {
-    margin: 0px 1px;
+    border: none;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
-    letter-spacing: -2px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.6;
 }
 
 .docBackground {
     display: flex;
     justify-content: center;
 }
+
+
 

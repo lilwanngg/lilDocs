@@ -29,7 +29,7 @@ class DocShow extends React.Component {
             <>
                 <DocNavBar doc={doc} user={user}/>
                 <div className="docBackground">
-                    <textarea className="docSpace" value={this.state.content} name="" cols="106" rows="43" onChange={this.update('content')}></textarea>
+                    <textarea className="docSpace" value={this.state.content} name="" cols="106" rows="80" onChange={this.update('content')}></textarea>
                 </div>
             </>
         )
