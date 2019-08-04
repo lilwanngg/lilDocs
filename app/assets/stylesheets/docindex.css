@@ -1,0 +1,74 @@
+.allDocs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.allDocs li {
+    padding: 10px;
+}
+
+.one-doc {
+    border: 1px solid rgb(228, 228, 228);
+    height: 250px;
+    widtH: 207px;
+    border-radius: 3px;
+}
+
+.one-doc:hover {
+    border: 1px solid #4386fc;
+}
+
+.doc-info {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+.doc-thumbnail {
+    border-bottom: 1px solid rgb(228, 228, 228);
+    height: 180px;
+}
+
+.doc-info p {
+    overflow: hidden;
+    font-weight: 600;
+    color: rgb(70, 70, 70);
+    font-size: 14px;
+    margin: 4px 10px 0px 20px;
+}
+
+.date-str {
+    font-weight: 300;
+    font-size: 11.5px;
+    margin: 4px 10px 0px 20px;
+    color: rgb(126, 126, 126);
+}
+
+.dotDropdown {
+    z-index: 10;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    text-align: middle;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    font-size: 25px;
+    letter-spacing: -3px;
+    margin-left: 150px;
+    bottom: 30px;
+    color: rgb(70, 70, 70);
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.dotDropdown:hover {
+    background-color: rgb(216, 216, 216);
+}

@@ -52,6 +52,8 @@ class DocNavBar extends React.Component {
         ) : (
             <p id="nav-logo"><img src={window.lilDocsURL}/></p>
         )
+        // let shareButton = doc ? () : (<></>)  to be filled in at the share portion
+
         return(
             < div className="doc-nav-bar sticky-nav" >
                 <div className="doc-nav-left">
@@ -60,7 +62,6 @@ class DocNavBar extends React.Component {
                 </div>
                 <div className="doc-nav-right">
                     {/* <ShareButton /> */}
-                    {/* <button>&#128274; Share</button> */}
                     <div ref={iconRef => this.iconRef = iconRef} className="initialsCircle" id="dropdown-btn">
                         {first_name[0].toUpperCase()}
                     </div>
@@ -72,7 +73,7 @@ class DocNavBar extends React.Component {
                             <div className="account-info">
                                 <p>{first_name} {last_name}</p>
                                 <p>{email}</p>
-                                <Link to="/documents" className="back-to-docs">Back to Docs</Link>
+                            { doc ? (<Link to="/documents" className="back-to-docs">Back to Docs</Link>) : (<></>) }
                             </div>
                         </div>
                         <div className="signout-bar">

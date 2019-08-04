@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import DocNavBar from './document_nav_bar'
+import DocIndexItem from './document_index_item'
+import NewDocBar from './new_doc_bar'
 
 class DocumentIndex extends React.Component {
 
@@ -11,16 +13,18 @@ class DocumentIndex extends React.Component {
     render() {
         const { documents, user } = this.props
         const docLis = documents.map( (doc, idx) => {
-            let date = new Date(doc.created_at)
-            let fDate = date.toDateString().split(' ').slice(1)
-            fDate[1] += ","
-            let fDateString = fDate.join(' ')
-            return( <li key={`doc${idx}`}>{doc.title} {fDateString}</li>)
+           return (<DocIndexItem doc={doc} key={idx}/>)
         })
+
+
         return(
             <>
                 <DocNavBar user={user} />
-                <ul>
+                <div className="new-doc-area">
+                    <NewDocBar />
+                </div>
+                {/* <RecentDocBar /> */}
+                <ul className="allDocs">
                     {docLis}
                 </ul>
             </>
@@ -28,8 +32,5 @@ class DocumentIndex extends React.Component {
     }
 }
 
-const msp = state => ({
-    user: state.entities.users[state.session.id]
-})
 
-export default connect(msp) (DocumentIndex)
+export default DocumentIndex

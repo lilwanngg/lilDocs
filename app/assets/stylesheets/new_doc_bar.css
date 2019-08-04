@@ -1,0 +1,59 @@
+.temps {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-wrap: wrap;
+    color: rgb(72, 71, 71);
+    background: rgba(0, 30, 40, .03);
+    padding: 30px 80px 20px 80px;
+}
+
+.docs {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.new-doc {
+    font-weight: 400;
+    width: 90%;
+}
+
+.eachdoc {
+    padding: 10px;
+}
+
+.docpic {
+    border: 1px solid rgb(231, 229, 229);
+    border-radius: 3px;
+    height: 170px;
+    width: 132px;
+}
+
+.docpic img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.docdesc p:last-of-type {
+    font-weight: 300;
+    font-size: 14px;
+    color: gray;
+}
+
+.docdesc p:first-of-type {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(36, 36, 36);
+    margin-top: 10px;
+}
+
+.docdesc {
+    margin-left: 5px;
+}
+
+.docdesc p {
+    margin: 0px 0px;
+}

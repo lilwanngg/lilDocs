@@ -3,7 +3,8 @@ import DocumentIndex from "./document_index"
 import { fetchDocuments } from '../../actions/document_actions'
 
 const msp = (state) => ({
-    documents: Object.values(state.entities.documents)
+    documents: Object.values(state.entities.documents),
+    user: state.entities.users[state.session.id]
 })
 
 const mdp = dispatch => ({
