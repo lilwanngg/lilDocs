@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_013146) do
+ActiveRecord::Schema.define(version: 2019_08_05_175212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "documents", force: :cascade do |t|
-    t.string "title", default: "Untitled", null: false
-    t.text "content"
+    t.string "title", default: "Untitled document", null: false
+    t.text "content", default: ""
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

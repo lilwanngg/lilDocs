@@ -12,19 +12,18 @@ export const fetchDocument = (id) => {
     })
 }
 
-export const createDocument = (doc) => {
+export const createDocument = () => {
     return $.ajax({
         method: "POST",
-        url: "api/documents",
-        data: { doc }
+        url: "api/documents"
     })
 }
 
-export const updateDocument = (doc) => {
+export const updateDocument = (document) => {
     return $.ajax({
         method: "PATCH",
-        url: `api/documents/${doc.id}`,
-        data: { doc }
+        url: `api/documents/${document.id}`,
+        data: { document }
     })
 }
 

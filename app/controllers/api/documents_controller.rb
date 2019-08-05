@@ -10,11 +10,21 @@ class Api::DocumentsController < ApplicationController
   end
 
   def create
-    @document = User.new(doc_params)
+    @document = Document.new
+    @document.user_id = current_user.id
     if @document.save
       render :show
     else
       render json: @document.errors.full_messages, status: 401
+    end
+  end
+
+  def update 
+    @document = Document.find(params[:id])
+    if @document.update(doc_params)
+      render :show
+    else
+      render json: @document.errors.full_messages, status: 422
     end
   end
 
@@ -25,7 +35,7 @@ class Api::DocumentsController < ApplicationController
   end
 
   def doc_params
-    params.require(:document).permit(:title)
+    params.require(:document).permit(:title, :content)
   end
 
 end

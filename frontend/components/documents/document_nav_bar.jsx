@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 // import { ShareButton } from './share_button'
+import { debounce } from 'debounce'
 import { Link } from 'react-router-dom'
 import { logout } from "../../actions/session_actions"
 
@@ -11,11 +12,15 @@ class DocNavBar extends React.Component {
         this.handlePicClick = this.handlePicClick.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.debouncedUpdate = debounce(this.props.updateDocument, 3000)
     }
 
     update(field) {
+        const { id } = this.props.doc
+        const { content } = this.state
         return (e) => {
-            this.setState({[field]: e.target.value})
+            this.debouncedUpdate({ id, title: e.target.value, content }),
+            this.setState({doc: {[field]: e.target.value}})
         }
     }
 
@@ -47,18 +52,27 @@ class DocNavBar extends React.Component {
     render() {
         const { doc, clicked } = this.state
         const { first_name, last_name, email  } = this.props.user
-        let topLogo = doc ? (
-            <input className={`doctitle ${doc.title === "Untitled" ? "default-title" : ""} `} type="text" value={doc.title} onChange={this.update('title')} />
+        const topLogo = doc ? (
+            <input className={`doctitle ${doc.title === "Untitled document" ? "default-title" : ""} `} type="text" value={doc.title} 
+            onChange={this.update('title')} />
         ) : (
             <p id="nav-logo"><img src={window.lilDocsURL}/></p>
         )
         // let shareButton = doc ? () : (<></>)  to be filled in at the share portion
-
+        const dispTime = new Date(this.props.updatedAt)
+        let time = dispTime.toTimeString().split(' ')[0].slice(0, -3)
+        let hour = parseInt(time.slice(0,2))
+        let after = " PM"
+        hour > 12 ? hour = (hour % 12) : after = " AM"
+        time = hour.toString() + time.slice(2) + after
+        const updatedAt = doc ? (<div className="updated-at">Last edit was {dispTime.toDateString()} {time}</div>) : (<></>)
+        
         return(
             < div className="doc-nav-bar sticky-nav" >
                 <div className="doc-nav-left">
                     <Link to="/documents" className="doc-index-btn"><img className="doclogo" src={window.docURL} /></Link>
                     {topLogo}
+                    {updatedAt}
                 </div>
                 <div className="doc-nav-right">
                     {/* <ShareButton /> */}

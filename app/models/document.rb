@@ -3,8 +3,8 @@
 # Table name: documents
 #
 #  id         :bigint           not null, primary key
-#  title      :string           default("Untitled"), not null
-#  content    :text
+#  title      :string           default("Untitled document"), not null
+#  content    :text             default("")
 #  user_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

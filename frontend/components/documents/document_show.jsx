@@ -1,13 +1,15 @@
 import React from 'react'
 import DocNavBar from "./document_nav_bar.jsx"
 import { connect } from 'react-redux'
-import { fetchDocument } from '../../actions/document_actions'
+import { debounce } from 'debounce'
+import { fetchDocument, updateDocument } from '../../actions/document_actions'
 
 
 class DocShow extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {title: "", content: ""}
+        this.state = {title: "", content: "", updated_at: ""}
+        this.debouncedUpdate = debounce(this.props.updateDocument, 3000)
     }
 
     componentDidMount() {
@@ -17,7 +19,10 @@ class DocShow extends React.Component {
     }
 
     update(field) {
+        const { id } = this.props.doc
+        const { title, content } = this.state
         return (e) => {
+            this.debouncedUpdate({ id, title, content })
             this.setState({ [field]: e.target.value })
         }
     }
@@ -27,7 +32,7 @@ class DocShow extends React.Component {
         const { doc, user } = this.props
         return(
             <>
-                <DocNavBar doc={doc} user={user}/>
+                <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
                 <div className="docBackground">
                     <textarea className="docSpace" value={this.state.content} name="" cols="106" rows="80" onChange={this.update('content')}></textarea>
                 </div>
@@ -47,7 +52,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return {
-        fetchDocument: (id) => dispatch(fetchDocument(id))
+        fetchDocument: (id) => dispatch(fetchDocument(id)),
+        updateDocument: doc => dispatch(updateDocument(doc))
     }
 }
 

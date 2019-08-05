@@ -1,8 +1,20 @@
 .allDocs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 5px 80px;
+    justify-content: flex-start;
+}
+
+.recent-wrapper {
+    width: 57%;
+    height: 330px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.index-bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 a {
@@ -11,12 +23,13 @@ a {
 
 .allDocs li {
     padding: 10px;
+    z-index: 1;
 }
 
 .one-doc {
     border: 1px solid rgb(228, 228, 228);
-    height: 250px;
-    widtH: 207px;
+    height: 300px;
+    width: 195px;
     border-radius: 3px;
 }
 
@@ -28,12 +41,13 @@ a {
     display: flex;
     align-items: left;
     flex-direction: column;
-    margin-top: 8px;
 }
 
-.doc-thumbnail {
+.doc-thumbnail img {
     border-bottom: 1px solid rgb(228, 228, 228);
-    height: 180px;
+    height: 230px;
+    width: 195px;
+    object-fit: fill;
 }
 
 .doc-info p {
@@ -51,24 +65,79 @@ a {
     color: rgb(126, 126, 126);
 }
 
-.dotDropdown {
+.dots {
     z-index: 10;
     height: 30px;
     width: 30px;
     position: relative;
-    text-align: middle;
-    border-radius: 50%;
-    transform: rotate(90deg);
-    font-size: 25px;
-    letter-spacing: -3px;
-    margin-left: 150px;
-    bottom: 30px;
+    right: 0px;
+    bottom: 2px;
+    font-size: 30px;
     color: rgb(70, 70, 70);
     display: flex;
     align-items: center;
     justify-content: center;    
 }
 
+.dotDropdown {
+    z-index: 15;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    margin-left: 140px;
+    position: relative;
+    bottom: 35px;
+}
+
 .dotDropdown:hover {
     background-color: rgb(216, 216, 216);
+}
+
+.dotDropdown:focus {
+    background-color: light-blue;
+}
+
+.recent-docs-bar {
+    padding-top: 18px;
+    padding-bottom: 15px;
+    font-weight: 500;
+    height: 64px;
+    position: sticky;
+    top: 64px;
+    background: white;
+    z-index: 100;
+    margin-left: 10px;
+}
+
+.dotDropdown-display {
+    /* display: block !important; */
+    position: absolute;
+    border: 1px solid rgb(213, 213, 213);
+    left: -80px;
+    height: 80px;
+    width: 180px;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px 1px rgb(234, 234, 234);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 10px;
+    background-color: white;
+}
+
+.dotDropdown-display div {
+    color: rgb(92, 91, 91);
+    font-weight: 400;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.dotDropdown-display div:hover {
+    background-color: rgb(234, 234, 234);
+    margin-left: 0px;
+}
+
+.hideMenu {
+    display: none;
 }

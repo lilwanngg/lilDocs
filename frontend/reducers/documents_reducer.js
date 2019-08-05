@@ -10,7 +10,7 @@ const documentsReducer = ( state = {}, action) => {
             return merge( {}, state, { [action.document.id]: action.document})
         case REMOVE_DOCUMENT:
             let newState = merge({}, state)
-            delete newState[id]
+            delete newState[action.id]
             return newState
         default:
             return state

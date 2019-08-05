@@ -3,10 +3,10 @@
     justify-content: space-between;
     align-items: center;
     height: 64px;
-    border-bottom: 1px solid rgb(234, 234, 234);
     position: sticky;
     top: 0;
     background: white;
+    z-index: 100;
 }
 
 .doc-nav-right {

@@ -1,27 +1,28 @@
 .temps {
     display: flex;
     flex-direction: column;
-    align-items: left;
-    flex-wrap: wrap;
     color: rgb(72, 71, 71);
-    background: rgba(0, 30, 40, .03);
-    padding: 30px 80px 20px 80px;
+    margin: 0 auto;
+}
+
+.temp-wrapper {
+    width: 100%;
+    height: 330px;
+    display: flex;
+    background: rgba(0, 30, 40, 0.05);
 }
 
 .docs {
     display: flex;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
-}
-
-.new-doc {
-    font-weight: 400;
-    width: 90%;
+    justify-content: flex-start;
 }
 
 .eachdoc {
     padding: 10px;
+}
+
+.docpic:hover {
+    border: 1px solid #4386fc;
 }
 
 .docpic {
@@ -56,4 +57,12 @@
 
 .docdesc p {
     margin: 0px 0px;
+}
+
+.start {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    width: 100%;
+    font-weight: 400;
 }
