@@ -1,5 +1,6 @@
 import React from 'react';
-import NavbarContainer from './navbar/splash_navbar_container'
+import EditTitle from "./documents/edit_title"
+import EditModal from './modals/edit_title_modal'
 import { Route, Switch } from 'react-router-dom'
 import CheckEmailContainer from './auth/check_email_container'
 import SignupFormContainer from './auth/signup_form_container'
@@ -20,6 +21,8 @@ const App = () => (
         <ProtectedRoute path="/documents/:documentId" component={DocShow} />
         <ProtectedRoute path="/documents" component={DocumentIndexContainer} />
     </Switch>
+        <EditModal />
+        <EditTitle />
 
     </div>
 );

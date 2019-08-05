@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EditTitle from '../documents/edit_title'
+// import { withRouter } from 'react-router-dom'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -10,7 +11,7 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal) {
         case 'editTitle':
-            component = <EditTitle doc={doc} />;
+            component = <EditTitle />;
             break;
         // case 'share':
         //   component = <SignupFormContainer />;
@@ -28,6 +29,7 @@ function Modal({ modal, closeModal }) {
 }
 
 const mapStateToProps = state => {
+    debugger
     return {
         modal: state.modal
     };

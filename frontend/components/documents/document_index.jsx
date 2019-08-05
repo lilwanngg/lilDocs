@@ -12,9 +12,11 @@ class DocumentIndex extends React.Component {
     }
 
     render() {
+        if (this.props.documents.length > 0) {return null}
+        debugger
         const { documents, user } = this.props
         const docLis = documents.map( (doc, idx) => {
-           return (<DocIndexItem doc={doc} key={idx} deleteDocument={this.props.deleteDocument}/>)
+           return (<DocIndexItem doc={doc} key={idx} deleteDocument={this.props.deleteDocument} openModal={this.props.openModal}/>)
         })
 
 

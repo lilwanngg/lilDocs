@@ -31,7 +31,6 @@ class Api::DocumentsController < ApplicationController
   def destroy
     document = Document.find(params[:id])
     document.destroy
-    render :index
   end
 
   def doc_params

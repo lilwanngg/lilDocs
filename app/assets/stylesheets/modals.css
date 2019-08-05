@@ -1,0 +1,75 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 50;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit-title-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 0px;
+}
+
+.edit-title-form {
+    border: 1px solid black;
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.edit-label {
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: rgb(50, 50, 50);
+}
+
+.sub-edit-label {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgb(140, 140, 140);
+
+}
+
+.edit-input {
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid rgb(179, 179, 179);
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.edit-input:focus {
+    border: 1px solid #4386fc;
+}
+
+.edit-button {
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    background-color: #4386fc;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    align-self: right;
+    margin-left: 300px;
+    outline: none;
+
+}
+
+.edit-button:hover {
+    background-color: #5592fa;
+}

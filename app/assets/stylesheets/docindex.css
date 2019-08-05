@@ -23,7 +23,6 @@ a {
 
 .allDocs li {
     padding: 10px;
-    z-index: 1;
 }
 
 .one-doc {
@@ -43,7 +42,7 @@ a {
     flex-direction: column;
 }
 
-.doc-thumbnail img {
+.doc-thumbnail {
     border-bottom: 1px solid rgb(228, 228, 228);
     height: 230px;
     width: 195px;
@@ -76,7 +75,9 @@ a {
     color: rgb(70, 70, 70);
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;   
+    outline: none; 
+    user-select: none;
 }
 
 .dotDropdown {
@@ -111,10 +112,10 @@ a {
 }
 
 .dotDropdown-display {
-    /* display: block !important; */
     position: absolute;
     border: 1px solid rgb(213, 213, 213);
     left: -80px;
+    top: 60px;
     height: 80px;
     width: 180px;
     border-radius: 3px;
@@ -125,6 +126,7 @@ a {
     margin-left: 10px;
     background-color: white;
 }
+
 
 .dotDropdown-display div {
     color: rgb(92, 91, 91);

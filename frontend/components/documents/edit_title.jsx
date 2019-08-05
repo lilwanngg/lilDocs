@@ -1,57 +1,59 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { signup } from '../../actions/session_actions';
+import { updateDocument } from '../../actions/document_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom'
 
 class EditTitle extends React.Component {
     constructor(props) {
         super(props)
         this.state = this.props.doc
+    }
 
+    editTitle() {
+        const { title,  content, id } = this.state
+        this.props.editTitle({id, title, content})
     }
 
     componentDidMount() {
-        this.props.fetchDocument(this.props.doc.id)
+        debugger
+        // this.props.fetchDocument(this.props.doc.id)
     }
 
     update(field) {
         return (e) => {
-            this.setState({ doc: { [field]: e.target.value } })
+            this.setState( { [field]: e.target.value } )
         }
     }
 
     render() {
+        if (!this.props.doc) {return null}
         return(
             <form className="edit-title-form">
                 <label className="edit-label">Rename</label>
                 <label className="sub-edit-label">Please enter a new name for the item:</label>
-                <input type="text" value={this.state.title} onChange={this.update('title')}/>
-                <input type="submit" onClick={this.props.updateDocument}/>
-    
+                <input className="edit-input" type="text" value={this.state.title} onChange={this.update('title')}/>
+                {/* <input type="text" value="" onChange={this.update('title')}/> */}
+                <input className="edit-button" type="submit" onClick={this.editTitle} value="OK"/>
             </form>
         )
     }
 }
 
-// const mapStateToProps = ({ errors }) => {
-//     return {
-//         errors: errors.session,
-//         formType: 'edit',
-//     };
-// };
+const msp = (state) => {
+    debugger
+    return { 
+        // doc: state.entities.documents[1]
+        doc: { id: 11, title: "hello", content: "asdf"}
+    };
+};
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         processForm: (user) => dispatch(signup(user)),
-//         otherForm: (
-//             <button onClick={() => dispatch(openModal('login'))}>
-//                 OK
-//       </button>
-//         ),
-//         closeModal: () => dispatch(closeModal())
-//     };
-// };
+const mdp = dispatch => {
+    return {
+        editTitle: (doc) => dispatch(updateDocument(doc)),
+        closeModal: () => dispatch(closeModal())
+    };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default withRouter(connect(msp, mdp)(EditTitle));
 
-export default EditTitle

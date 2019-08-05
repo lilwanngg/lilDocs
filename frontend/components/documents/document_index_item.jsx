@@ -12,76 +12,53 @@ class DocIndexItem extends React.Component {
     }
 
     deleteDocument(e) {
-        // debugger
-        e.stopPropagation();
         this.props.deleteDocument(this.props.doc.id);
     }
 
-    // componentWillMount() {
-    //     document.addEventListener("mousedown", this.handleClick, false)
-    // }
-
-    // componentWillUnmount() {
-    //     document.removeEventListener("mousedown", this.handleClick, false)
-    // }
-
     handleClick(e) {
-        e.stopPropagation();
-        this.props.history.push(`/documents/${this.props.doc.id}`);
-
-        // if (this.state.clicked && ((this.dotDropRef.contains(e.target)))) {
-        //     return
-        // } else if (!this.state.clicked && !this.dotRef.contains(e.target)) {
-        //     return
-        // }
-        // debugger
-        // this.handleDotClick(e);
+        if (e.target.className !== "dots" && e.target.className !== "remove" && e.target.className !== "rename") {
+            this.props.history.push(`/documents/${this.props.doc.id}`);
+        }
     }
 
+    // openModal(e) {
+    //     this.props.openModal("editTitle")
+    // }
+
+
     handleDotFocus(e) {
-        debugger
-        e.stopPropagation();
         this.setState({ clicked: true });
     }
 
     handleDotBlur(e) {
-        debugger
-        e.stopPropagation();
         this.setState({ clicked: false });
     }
 
     render() {
-        const { doc } = this.props
-        const { clicked } = this.state
-        const date = new Date(doc.created_at)
-        const fDate = date.toDateString().split(' ').slice(1)
-        fDate[1] += ","
-        const fDateString = fDate.join(' ')
-        return( 
+        const { doc } = this.props;
+        const date = new Date(doc.created_at);
+        const fDate = date.toDateString().split(' ').slice(1);
+        fDate[1] += ",";
+        const fDateString = fDate.join(' ');
+        return (
             <li onClick={this.handleClick}>
-                {/* <Link to={`/documents/${doc.id}`}> */}
-                    <div className="one-doc" 
-                    // ref={documentRef => this.documentRef = documentRef}
-                    >
-                        <div className="doc-thumbnail">
-                            <img src={window.sampleURL}/>
-                        </div>
-                        <div className="doc-info">
-                            <p>{doc.title}</p> 
-                            <div className="date-str">{fDateString}
-                                <div className="dotDropdown">
-                                    <div onFocus={this.handleDotFocus} onBlur={this.handleDotBlur} tabIndex="1" className="dots">&#8942; 
-                                        <div className={`dotDropdown-display ${clicked ? "" : "hideMenu"}`}>
-                                            <div>Rename</div>
-                                            <div onClick={this.deleteDocument}>Remove</div>
-                                        </div>
-
+                <div className="one-doc">
+                    <img className="doc-thumbnail" src={window.sampleURL} />
+                    <div className="doc-info">
+                        <p>{doc.title}</p>
+                        <div className="date-str">{fDateString}
+                            <div className="dotDropdown">
+                                <div onFocus={this.handleDotFocus} onBlur={this.handleDotBlur} tabIndex="1" className="dots">
+                                    &#8942;
+                                    <div className={`dotDropdown-display ${this.state.clicked ? "" : "hideMenu"}`}>
+                                        <div className="rename" onClick={this.openModal("editTitle")}>Rename</div>
+                                        <div className="remove" onClick={this.deleteDocument}>Remove</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {/* </Link> */}
+                </div>
             </li>
         )
     }
