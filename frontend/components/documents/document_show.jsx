@@ -3,7 +3,7 @@ import DocNavBar from "./document_nav_bar.jsx"
 import { connect } from 'react-redux'
 import { fetchDocument, updateDocument } from '../../actions/document_actions'
 import WorkingQuillToolbar from '../richtext/quill_toolbar-clean'
-import QuillToolbar from '../richtext/quill_toolbar'
+// import QuillToolbar from '../richtext/quill_toolbar'
 
 
 class DocShow extends React.Component {
@@ -43,7 +43,7 @@ class DocShow extends React.Component {
         return(
             <>
                 <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
-                <QuillToolbar doc={doc} updateDocument={this.props.updateDocument}/>
+                <WorkingQuillToolbar doc={doc} updateDocument={this.props.updateDocument}/>
             </>
         )
     }

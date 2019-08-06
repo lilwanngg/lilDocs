@@ -5,7 +5,7 @@ const Size = Quill.import("formats/size")
 Size.whitelist = ['extra-small', 'small', 'medium', 'large']
 Quill.register(Size, true)
 
-const Font = Quill.import("formats/font")
+const Font = ReactQuill.Quill.import("formats/font")
 Font.whitelist = [
     "arial",
     'calibri',
@@ -22,7 +22,7 @@ Font.whitelist = [
     'trebuchet',
     'verdana'
 ]
-Quill.register(Font, true)
+ReactQuill.Quill.register(Font, true)
 
 
 class WorkingQuillToolbar extends React.Component {
@@ -33,20 +33,23 @@ class WorkingQuillToolbar extends React.Component {
 
         this.modules = {
             toolbar: [
-                [{ 'header': [1, 2, false] }],
+                [{ 'header': [1, 2, false, 3, 4] }],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [ { 'font': [] }],
+                [ { 'color': [] }, { 'background': [] }],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
                 ['link', 'image'],
                 ['clean']
             ],
         }
 
-        this.formats = [
-            'header',
-            'bold', 'italic', 'underline', 'strike', 'blockquote',
-            'list', 'bullet', 'indent',
-            'link', 'image'
-        ]
+        // this.formats = [
+        //     'header',
+        //     'bold', 'italic', 'underline', 'strike', 'blockquote',
+        //     'color','background','font',
+        //     'list', 'bullet', 'indent',
+        //     'link', 'image'
+        // ]
         this.update = this.update.bind(this)
     }
 
@@ -74,20 +77,21 @@ class WorkingQuillToolbar extends React.Component {
                     modules={this.modules}
                     formats={this.formats}
                     onChange={this.update}
-                    {...{
-                        ref: (node) => {
-                            if (!node) return
-                            const originalSetRange = node.editor.selection.__proto__.setNativeRange.bind(node.editor.selection)
-                            node.editor.selection.__proto__.setNativeRange = (startNode, startNodeOffset, endNode, endNodeOffset) => {
-                                if (
-                                    node.editor.root.contains(startNode) &&
-                                    node.editor.root.contains(endNode)
-                                ) {
-                                    originalSetRange(startNode, startNodeOffset, endNode, endNodeOffset)
-                                }
-                            }
-                        }
-                    }}
+                    ref={ (editor) => this.editor = editor }
+                    // {...{
+                    //     ref: (node) => {
+                    //         if (!node) return
+                    //         const originalSetRange = node.editor.selection.__proto__.setNativeRange.bind(node.editor.selection)
+                    //         node.editor.selection.__proto__.setNativeRange = (startNode, startNodeOffset, endNode, endNodeOffset) => {
+                    //             if (
+                    //                 node.editor.root.contains(startNode) &&
+                    //                 node.editor.root.contains(endNode)
+                    //             ) {
+                    //                 originalSetRange(startNode, startNodeOffset, endNode, endNodeOffset)
+                    //             }
+                    //         }
+                    //     }
+                    // }}
                 >
                     <div className="editor" />
 
