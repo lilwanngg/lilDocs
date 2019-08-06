@@ -1,21 +1,30 @@
 import React from 'react'
 import DocNavBar from "./document_nav_bar.jsx"
 import { connect } from 'react-redux'
-import { debounce } from 'debounce'
 import { fetchDocument, updateDocument } from '../../actions/document_actions'
+import QuillToolbar from '../richtext/quill_toolbar'
 
 
 class DocShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {title: "", content: "", updated_at: ""}
-        this.debouncedUpdate = debounce(this.props.updateDocument, 3000)
+        this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
     }
 
     componentDidMount() {
         this.props.fetchDocument(this.props.match.params.documentId).then( () => {
             this.setState(this.props.doc)
         })
+    }
+
+    debounce(func, time) {
+        let timeout
+        return function() {
+            const call = () => func.apply(this, arguments)
+            clearTimeout(timeout)
+            timeout = setTimeout(call, time)
+        }
     }
 
     update(field) {
@@ -33,6 +42,9 @@ class DocShow extends React.Component {
         return(
             <>
                 <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
+                <div id="quill-toolbar">
+                    <QuillToolbar />
+                </div>
                 <div className="docBackground">
                     <textarea className="docSpace" value={this.state.content} name="" cols="106" rows="80" onChange={this.update('content')}></textarea>
                 </div>

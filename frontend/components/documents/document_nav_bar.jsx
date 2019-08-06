@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 // import { ShareButton } from './share_button'
-import { debounce } from 'debounce'
 import { Link } from 'react-router-dom'
 import { logout } from "../../actions/session_actions"
 
@@ -12,7 +11,7 @@ class DocNavBar extends React.Component {
         this.handlePicClick = this.handlePicClick.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
         this.handleClick = this.handleClick.bind(this)
-        this.debouncedUpdate = debounce(this.props.updateDocument, 3000)
+        this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
     }
 
     update(field) {
@@ -23,6 +22,16 @@ class DocNavBar extends React.Component {
             this.setState({doc: {[field]: e.target.value}})
         }
     }
+
+    debounce(func, time) {
+        let timeout
+        return function () {
+            const call = () => func.apply(this, arguments)
+            clearTimeout(timeout)
+            timeout = setTimeout(call, time)
+        }
+    }
+
 
     componentWillMount () {
         document.addEventListener("mousedown", this.handleClick, false)

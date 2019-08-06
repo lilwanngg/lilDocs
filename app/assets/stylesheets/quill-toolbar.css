@@ -1,0 +1,12 @@
+#quill-toolbar {
+    position: sticky;
+    top: 64px;
+    height: 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0px 0px 0px 10px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
