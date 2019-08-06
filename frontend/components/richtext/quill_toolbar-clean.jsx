@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactQuill, { Quill } from 'react-quill'
 
-const Size = Quill.import("formats/size")
-Size.whitelist = ['extra-small', 'small', 'medium', 'large']
-Quill.register(Size, true)
+const Size = ReactQuill.Quill.import("attributors/style/size")
+Size.whitelist = ['8px', '9px', '10px', '11px', '12px', '14px', '18px', '24px', '30px', '36px', '48px', '60px']
+ReactQuill.Quill.register(Size, true)
 
 const Font = ReactQuill.Quill.import("formats/font")
 Font.whitelist = [
@@ -15,8 +15,6 @@ Font.whitelist = [
     "georgia",
     "helvetica",
     "lucida",
-    'montserrat',
-    'oswald',
     'roboto',
     'times-new-roman',
     'trebuchet',
@@ -34,8 +32,9 @@ class WorkingQuillToolbar extends React.Component {
         this.modules = {
             toolbar: [
                 [{ 'header': [1, 2, false, 3, 4] }],
+                [{ 'size': ['8px', '9px', '10px', '11px', '12px', '14px', '18px', '24px', '30px', '36px', '48px', '60px'] }],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                [ { 'font': [] }],
+                [ { 'font': [ 'arial', 'calibri', 'cambria', 'comic-sans', 'georgia', 'helvetica', 'lucida', false ,'roboto', 'times-new-roman', 'trebuchet', 'verdana']} ],
                 [ { 'color': [] }, { 'background': [] }],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
                 ['link', 'image'],
@@ -77,21 +76,21 @@ class WorkingQuillToolbar extends React.Component {
                     modules={this.modules}
                     formats={this.formats}
                     onChange={this.update}
-                    ref={ (editor) => this.editor = editor }
-                    // {...{
-                    //     ref: (node) => {
-                    //         if (!node) return
-                    //         const originalSetRange = node.editor.selection.__proto__.setNativeRange.bind(node.editor.selection)
-                    //         node.editor.selection.__proto__.setNativeRange = (startNode, startNodeOffset, endNode, endNodeOffset) => {
-                    //             if (
-                    //                 node.editor.root.contains(startNode) &&
-                    //                 node.editor.root.contains(endNode)
-                    //             ) {
-                    //                 originalSetRange(startNode, startNodeOffset, endNode, endNodeOffset)
-                    //             }
-                    //         }
-                    //     }
-                    // }}
+                    // ref={ (editor) => this.editor = editor }
+                    {...{
+                        ref: (node) => {
+                            if (!node) return
+                            const originalSetRange = node.editor.selection.__proto__.setNativeRange.bind(node.editor.selection)
+                            node.editor.selection.__proto__.setNativeRange = (startNode, startNodeOffset, endNode, endNodeOffset) => {
+                                if (
+                                    node.editor.root.contains(startNode) &&
+                                    node.editor.root.contains(endNode)
+                                ) {
+                                    originalSetRange(startNode, startNodeOffset, endNode, endNodeOffset)
+                                }
+                            }
+                        }
+                    }}
                 >
                     <div className="editor" />
 
