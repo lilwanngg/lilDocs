@@ -1,0 +1,85 @@
+.doc-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 20;
+}
+
+.doc-nav-right {
+    display: flex;
+}
+
+.doclogo {
+    height: 52px;
+    margin-left: 10px;
+}
+
+.docBackground {
+    background-color: rgb(248, 249, 251);
+}
+
+.docSpace {
+    resize: none;
+    font-size: 12px;
+    padding: 100px 80px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 4px 1px rgb(231, 230, 230);
+    border: 1px solid rgb(231, 230, 230);
+}
+
+.docSpace:focus {
+    outline: none;
+}
+
+.doc-nav-left input {
+    border-radius: 5px;
+    padding-left: 10px;
+    width: max-content;
+    outline: none;
+}
+.doc-nav-left {
+    display: flex;
+}
+.doc-nav-left input:focus {
+    border: 2px solid #4386fc;
+}
+
+.doctitle {
+    height: 30px;
+    font-size: 18px;
+    color: black;
+    border: none;
+    /* if wanting to change position of title change this one */
+}
+
+.default-title {
+    color: rgb(140, 140, 140);
+}
+
+.initialsCircle {
+    margin-right: 30px;
+    width: 33px;
+    height: 33px;
+    background: rgb(88, 163, 209);
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.6;
+    user-select: none;
+}
+
+.docBackground {
+    display: flex;
+    justify-content: center;
+}
+
+
+
