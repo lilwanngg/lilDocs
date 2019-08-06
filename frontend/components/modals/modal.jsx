@@ -2,7 +2,6 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EditTitle from '../documents/edit_title'
-// import { withRouter } from 'react-router-dom'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -21,9 +20,7 @@ function Modal({ modal, closeModal }) {
     }
     return (
         <div className="modal-background" onClick={closeModal}>
-            {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
-                {component}
-            {/* </div> */}
+            {component}
         </div>
     );
 }
