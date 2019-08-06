@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import NavbarContainer from '../navbar/splash_navbar_container'
 import Footer from '../auth/footer'
 
-const Splashbox = () => {
+const Splashbox = ( {user }) => {
+
+    const button = user ? (<button><Link to="/documents">Go to lilDocs</Link></button>) : (<button><Link to="/signin">Go to lilDocs</Link></button>)
 
     return (
         <>
@@ -18,7 +20,7 @@ const Splashbox = () => {
                 <p id="splash-personal">Personal</p>
                     <p><img id="doc-logo" src={window.docURL} /></p>
                 <p id="splash-description">With lilDocs, you can write, edit, and collaborate wherever you are. For Free.</p>
-                <button><Link to="/documents">Go to lilDocs</Link></button>
+                {button}
             </div>
         </div>
         <Footer />
