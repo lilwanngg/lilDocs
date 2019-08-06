@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# <link rel="stylesheet" href="node_modules/react-quill/dist/quill.snow.css"> %>
+
     <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
@@ -27,6 +29,7 @@
       window.t6URL = "<%= image_url('template6.png') %>"
       window.sampleURL = "<%= image_url('sampleDocImage.png') %>"
     </script>
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

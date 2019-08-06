@@ -7,6 +7,7 @@
     top: 0;
     background: white;
     z-index: 20;
+    border-bottom: 1px solid lightgray;
 }
 
 .doc-nav-right {
@@ -18,22 +19,22 @@
     margin-left: 10px;
 }
 
-.docBackground {
+/* .docBackground {
     background-color: rgb(248, 249, 251);
-}
+} */
 
-.docSpace {
+/* .docSpace {
     resize: none;
     font-size: 12px;
     padding: 100px 80px;
     margin-top: 10px;
     box-shadow: 0px 0px 4px 1px rgb(231, 230, 230);
     border: 1px solid rgb(231, 230, 230);
-}
+} */
 
-.docSpace:focus {
+/* .docSpace:focus {
     outline: none;
-}
+} */
 
 .doc-nav-left input {
     border-radius: 5px;

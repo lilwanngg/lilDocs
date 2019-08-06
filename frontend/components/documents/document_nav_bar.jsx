@@ -73,6 +73,7 @@ class DocNavBar extends React.Component {
         let hour = parseInt(time.slice(0,2))
         let after = " PM"
         hour > 12 ? hour = (hour % 12) : after = " AM"
+        hour === 0 ? hour = 12 : hour = hour
         time = hour.toString() + time.slice(2) + after
         const updatedAt = doc ? (<div className="updated-at">Last edit was {dispTime.toDateString()} {time}</div>) : (<></>)
         
