@@ -39,7 +39,7 @@ class DocIndexItem extends React.Component {
         const fDate = date.toDateString().split(' ').slice(1);
         fDate[1] += ",";
         const fDateString = fDate.join(' ');
-        return ( 
+        return (
             <li onClick={this.handleClick}>
                 <div className="one-doc">
                     <img className="doc-thumbnail" src={window.sampleURL} />

@@ -10,7 +10,7 @@ class DocumentIndex extends React.Component {
         this.props.fetchDocuments()
     }
 
-    render() { 
+    render() {
         const { documents, user } = this.props
         const docLis = documents.map( (doc, idx) => {
            return (<DocIndexItem doc={doc} key={idx} deleteDocument={this.props.deleteDocument} openModal={this.props.openModal} updateDocument={this.props.updateDocument}/>)

@@ -27,7 +27,7 @@ class EditTitle extends React.Component {
         }
     }
 
-    render() { 
+    render() {
         if (!this.props.doc) {return null}
         return(
             <form className="edit-title-form modal-child" onClick={e => e.stopPropagation()}>

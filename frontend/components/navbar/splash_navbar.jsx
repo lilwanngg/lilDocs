@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({ user, logout}) => {
     const display = user ? (
-        <div className="userid">
-            <p>{user.first_name} {user.last_name}</p>
+        <div className="initials">
+            <p>{user.first_name[0].toUpperCase()}{user.last_name[0].toUpperCase()}</p>
             <button onClick={logout}>Log Out</button>
         </div>
     ) : (

@@ -27,7 +27,7 @@
     text-align: left;
     width: 350px;
     height: 400px;
-    padding: 40px;
+    padding: 40px 40px 75px 40px;
     justify-content: space-around;
 }
 
@@ -51,7 +51,7 @@
     margin-top: 20px;
     position: relative;
     top: 55px;
-    margin-left: 30px;
+    margin-left: 10px;
     padding: 2px;
     background-color:white;
     font-size: 16px;
@@ -66,10 +66,10 @@
     border-radius: 3px;
     border: 2px solid rgb(232, 232, 232);
     padding: 6px 14px;
-    margin-left: 20px;
+    margin-left: 0px;
     margin-top: 20px;
     font-size: 16px;
-    width: 80%;
+    width: 92%;
 }
 
 .labelinput > input:focus {
@@ -95,10 +95,10 @@
 .form a {
     text-decoration: none;
     color: #4386fc;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     position: relative;
-    bottom: 6px;
+    bottom: 0px;
 }
 
 .formfooter {
@@ -131,6 +131,9 @@
 .demo {
     height: 40px;
     margin-bottom: 50px;
+    color: rgb(103, 103, 103);
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .demo a {
@@ -138,7 +141,7 @@
     border: none;
     color: #4386fc;
     font-size: 15px;
-    padding: 0px 0px;
+    padding: 8x 0px 0px 0px;
     cursor: pointer;
 }
 
@@ -203,7 +206,7 @@
 
 #signup h1 {
     margin-top: 10px;
-    font-size: 22px;
+    font-size: 24px;
     bottom: 40px;
 }
 
@@ -211,7 +214,7 @@
     font-size: 14px;
     position: relative;
     top: -20px;
-    right: 17px;
+    right: 0px;
 }
 
 #signup .labelinput:focus-within label { 
@@ -240,7 +243,12 @@
 }
 
 #input2 {
-    margin-left: 16px;
+    margin-left: 33px;
+    left: -3px;
+}
+
+#input1 {
+    left: 0px;
 }
 
 #label2 {
@@ -266,7 +274,7 @@
     display: flex;
     justify-content: flex-end;
     width: 800px;
-    height: 500px;
+    height: 530px;
     border: 1px solid lightgray;
     border-radius: 8px;
 }
@@ -283,18 +291,16 @@
 .errors {
     font-size: 13px;
     color: rgb(225, 3, 3);
-    margin-left: 22px;
+    margin-left: 2px;
     margin-top: 5px;
 }
 
 #signup .errors {
     position: relative;
-    bottom: 30px;
-    left: -15px;
+    bottom: 25px;
     display: flex;
     flex-direction: column
 }
-
 
 #signup, form {
     position: relative;
@@ -310,13 +316,40 @@
 }
 
 #signup .demo {
-    margin: 0px 0px;
+    margin: 0px 00px 0px 2px ;
     position: relative;
-    top: -35px;
+    top: -30px;
 }
 
 #signup .formfooter {
-    top: 5px;
+    position: relative;
+    top: 20px;
     margin-bottom: 30px;
 }
+
+#signup .labelinput {
+    position: relative;
+    top: 20px;
+}
+
+#li2 label {
+    position: relative;
+    left: 12px
+}
+
+#signup .formfooter a {
+    font-weight: 600;
+}
+
+.errored-bord {
+    border: 2px solid rgb(225, 3, 3) !important;
+}
+
+.errored-label {
+    color: rgb(225, 3, 3) !important;
+}
+
+
+
+
 

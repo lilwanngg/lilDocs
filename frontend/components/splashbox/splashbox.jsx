@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarContainer from '../navbar/splash_navbar_container'
-import Footer from '../footer'
+import Footer from '../auth/footer'
 
 const Splashbox = () => {
 
