@@ -19,20 +19,23 @@ class DocumentIndex extends React.Component {
 
         return(
             <>
-                <DocNavBar user={user} />
-                <div className="new-doc-area">
-                    <NewDocBar createDocument={this.props.createDocument}/>
-                </div>
-                {/* <RecentDocBar /> */}
-                <div className="recent-wrapper">
-                    <div className="index-bottom">
-                        <div className="recent-docs-bar">
-                            Recent documents
-                        </div>
-                        <ul className="allDocs">
-                            {docLis}
-                        </ul>
+                <div className="body">
+                    <DocNavBar user={user} />
+                    <div className="new-doc-area">
+                        <NewDocBar createDocument={this.props.createDocument}/>
                     </div>
+                    {/* <RecentDocBar /> */}
+                    <div className="recent-wrapper">
+                        <div className="index-bottom">
+                            <div className="recent-docs-bar">
+                                Recent documents
+                            </div>
+                            <ul className="allDocs">
+                                {docLis}
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </>
         )

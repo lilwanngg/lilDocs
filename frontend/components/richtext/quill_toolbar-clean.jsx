@@ -23,7 +23,7 @@ Font.whitelist = [
 ReactQuill.Quill.register(Font, true)
 
 
-class WorkingQuillToolbar extends React.Component {
+class QuillToolbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = { content: this.props.doc.content }
@@ -55,14 +55,6 @@ class WorkingQuillToolbar extends React.Component {
                 ['clean']
             ],
         }
-
-        // this.formats = [
-        //     'header',
-        //     'bold', 'italic', 'underline', 'strike', 'blockquote',
-        //     'color','background','font',
-        //     'list', 'bullet', 'indent',
-        //     'link', 'image'
-        // ]
         this.update = this.update.bind(this)
     }
 
@@ -86,25 +78,10 @@ class WorkingQuillToolbar extends React.Component {
             <div className="editing-background">
                 <ReactQuill
                     theme="snow"
-                    value={this.state.content}
+                    defaultValue={this.state.content}
                     modules={this.modules}
                     onChange={this.update}
-                    {...{
-                        ref: (node) => {
-                            if (!node) return
-                            const originalSetRange = node.editor.selection.__proto__.setNativeRange.bind(node.editor.selection)
-                            node.editor.selection.__proto__.setNativeRange = (startNode, startNodeOffset, endNode, endNodeOffset) => {
-                                if (
-                                    node.editor.root.contains(startNode) &&
-                                    node.editor.root.contains(endNode)
-                                ) {
-                                    originalSetRange(startNode, startNodeOffset, endNode, endNodeOffset)
-                                }
-                            }
-                        }
-                    }}
                 >
-                    <div className="editor" />
 
                 </ReactQuill>
             </div>
@@ -114,4 +91,4 @@ class WorkingQuillToolbar extends React.Component {
 }
 
 
-export default WorkingQuillToolbar
+export default QuillToolbar
