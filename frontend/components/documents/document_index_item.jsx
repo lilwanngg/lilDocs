@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 class DocIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { clicked: false };
+        this.state = { doc: this.props.doc, clicked: false };
         this.deleteDocument = this.deleteDocument.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleDotFocus = this.handleDotFocus.bind(this);
@@ -15,16 +15,15 @@ class DocIndexItem extends React.Component {
         this.props.deleteDocument(this.props.doc.id);
     }
 
+    updateDocument(e) {
+        this.props.updateDocument(this.state.doc)
+    }
+
     handleClick(e) {
         if (e.target.className !== "dots" && e.target.className !== "remove" && e.target.className !== "rename") {
             this.props.history.push(`/documents/${this.props.doc.id}`);
         }
     }
-
-    // openModal(e) {
-    //     this.props.openModal("editTitle")
-    // }
-
 
     handleDotFocus(e) {
         this.setState({ clicked: true });
@@ -51,7 +50,7 @@ class DocIndexItem extends React.Component {
                                 <div onFocus={this.handleDotFocus} onBlur={this.handleDotBlur} tabIndex="1" className="dots">
                                     &#8942;
                                     <div className={`dotDropdown-display ${this.state.clicked ? "" : "hideMenu"}`}>
-                                        <div className="rename" onClick={this.openModal("editTitle")}>Rename</div>
+                                        <div className="rename" onClick={() => this.props.openModal({type: "editTitle", docId: doc.id})}>Rename</div>
                                         <div className="remove" onClick={this.deleteDocument}>Remove</div>
                                     </div>
                                 </div>

@@ -107,7 +107,7 @@ a {
     position: sticky;
     top: 64px;
     background: white;
-    z-index: 100;
+    z-index: 15;
     margin-left: 10px;
 }
 

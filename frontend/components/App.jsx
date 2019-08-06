@@ -1,6 +1,5 @@
 import React from 'react';
-import EditTitle from "./documents/edit_title"
-import EditModal from './modals/edit_title_modal'
+import Modal from './modals/modal'
 import { Route, Switch } from 'react-router-dom'
 import CheckEmailContainer from './auth/check_email_container'
 import SignupFormContainer from './auth/signup_form_container'
@@ -13,6 +12,7 @@ import { AuthRoute, UserRoute, ProtectedRoute } from '../util/route_utils'
 
 const App = () => (
     <div>
+        <Modal />
         <UserRoute path="/verify" component={LoginFormContainer} />
         <AuthRoute path="/signin" component={CheckEmailContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
@@ -21,8 +21,6 @@ const App = () => (
         <ProtectedRoute path="/documents/:documentId" component={DocShow} />
         <ProtectedRoute path="/documents" component={DocumentIndexContainer} />
     </Switch>
-        <EditModal />
-        <EditTitle />
 
     </div>
 );

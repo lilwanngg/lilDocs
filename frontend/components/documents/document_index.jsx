@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import DocNavBar from './document_nav_bar'
 import DocIndexItem from './document_index_item'
 import NewDocBar from './new_doc_bar'
-import { create } from 'domain';
 
 class DocumentIndex extends React.Component {
 
@@ -12,11 +11,9 @@ class DocumentIndex extends React.Component {
     }
 
     render() {
-        if (this.props.documents.length > 0) {return null}
-        debugger
         const { documents, user } = this.props
         const docLis = documents.map( (doc, idx) => {
-           return (<DocIndexItem doc={doc} key={idx} deleteDocument={this.props.deleteDocument} openModal={this.props.openModal}/>)
+           return (<DocIndexItem doc={doc} key={idx} deleteDocument={this.props.deleteDocument} openModal={this.props.openModal} updateDocument={this.props.updateDocument}/>)
         })
 
 

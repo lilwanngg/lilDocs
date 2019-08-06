@@ -9,9 +9,9 @@ function Modal({ modal, closeModal }) {
         return null;
     }
     let component;
-    switch (modal) {
+    switch (modal.type) {
         case 'editTitle':
-            component = <EditTitle />;
+            component = <EditTitle documentId={modal.docId}/>;
             break;
         // case 'share':
         //   component = <SignupFormContainer />;
@@ -21,17 +21,16 @@ function Modal({ modal, closeModal }) {
     }
     return (
         <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
+            {/* <div className="modal-child" onClick={e => e.stopPropagation()}> */}
                 {component}
-            </div>
+            {/* </div> */}
         </div>
     );
 }
 
 const mapStateToProps = state => {
-    debugger
     return {
-        modal: state.modal
+        modal: state.modal,
     };
 };
 
