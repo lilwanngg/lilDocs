@@ -69,5 +69,15 @@
     background-color: white;
     box-shadow: 0px 0px 4px 1px rgb(231, 230, 230);
     border: 1px solid rgb(231, 230, 230);
-    overflow: visible;
+    /* overflow: visible; */
+}
+
+.ql-snow.ql-toolbar button:hover, .ql-snow .ql-toolbar button:hover, 
+.ql-snow.ql-toolbar button.ql-active, .ql-snow .ql-toolbar button.ql-active, 
+.ql-snow.ql-toolbar .ql-picker-label:hover, 
+.ql-snow .ql-toolbar .ql-picker-label:hover, .ql-snow.ql-toolbar .ql-picker-label.ql-active, 
+.ql-snow .ql-toolbar .ql-picker-label.ql-active, .ql-snow.ql-toolbar .ql-picker-item:hover, 
+.ql-snow .ql-toolbar .ql-picker-item:hover, .ql-snow.ql-toolbar .ql-picker-item.ql-selected, 
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+    color: rgb(63, 63, 63);
 }

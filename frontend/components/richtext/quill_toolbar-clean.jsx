@@ -32,12 +32,26 @@ class WorkingQuillToolbar extends React.Component {
         this.modules = {
             toolbar: [
                 [{ 'header': [1, 2, false, 3, 4] }],
+                [{
+                    'font': [
+                        "arial",
+                        'calibri',
+                        'cambria',
+                        "comic-sans",
+                        "courier-new",
+                        "georgia",
+                        "helvetica",
+                        "lucida",
+                        'roboto',
+                        'times-new-roman',
+                        'trebuchet',
+                        'verdana'
+                    ]}],
                 [{ 'size': ['8px', '9px', '10px', '11px', '12px', '14px', '18px', '24px', '30px', '36px', '48px', '60px'] }],
-                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                [ { 'font': [ 'arial', 'calibri', 'cambria', 'comic-sans', 'georgia', 'helvetica', 'lucida', false ,'roboto', 'times-new-roman', 'trebuchet', 'verdana']} ],
-                [ { 'color': [] }, { 'background': [] }],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote', { 'color': [] }, { 'background': [] }],
                 ['link', 'image'],
+                [{ 'align' : '' }, { 'align' : 'center' }, { 'align' : 'right' }, { 'align' : 'justify' }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
                 ['clean']
             ],
         }
@@ -74,9 +88,7 @@ class WorkingQuillToolbar extends React.Component {
                     theme="snow"
                     value={this.state.content}
                     modules={this.modules}
-                    formats={this.formats}
                     onChange={this.update}
-                    // ref={ (editor) => this.editor = editor }
                     {...{
                         ref: (node) => {
                             if (!node) return

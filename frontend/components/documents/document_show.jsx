@@ -7,16 +7,26 @@ import WorkingQuillToolbar from '../richtext/quill_toolbar-clean'
 
 
 class DocShow extends React.Component {
+    
     constructor(props) {
+        let _isMounted = false;
         super(props)
         this.state = {title: "", content: "", updated_at: ""}
         this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
     }
 
     componentDidMount() {
+        this._isMounted=true;
+
         this.props.fetchDocument(this.props.match.params.documentId).then( () => {
-            this.setState(this.props.doc)
+            if (this._isMounted) {
+                this.setState(this.props.doc)
+            }
         })
+    }
+
+    componentWillUnmount() {
+        this._isMounted= false;
     }
 
     debounce(func, time) {
@@ -27,6 +37,7 @@ class DocShow extends React.Component {
             timeout = setTimeout(call, time)
         }
     }
+
 
     update(field) {
         const { id } = this.props.doc
