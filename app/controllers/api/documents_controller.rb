@@ -5,7 +5,7 @@ class Api::DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.all
+    @documents = current_user.documents
     render :index
   end
 

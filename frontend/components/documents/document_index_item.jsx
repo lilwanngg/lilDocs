@@ -45,10 +45,13 @@ class DocIndexItem extends React.Component {
                     <img className="doc-thumbnail" src={window.sampleURL} />
                     <div className="doc-info">
                         <p>{doc.title}</p>
-                        <div className="date-str">{fDateString}
+                        <div className="date-str">
+                            <div className="bottom-info-row">
+                                <img className="doc-icon-small" src={window.smallDocIconURL}/>{fDateString}
+                            </div>
                             <div className="dotDropdown">
                                 <div onFocus={this.handleDotFocus} onBlur={this.handleDotBlur} tabIndex="1" className="dots">
-                                    &#8942;
+                                    ●●●
                                     <div className={`dotDropdown-display ${this.state.clicked ? "" : "hideMenu"}`}>
                                         <div className="rename" onClick={() => this.props.openModal({type: "editTitle", docId: doc.id})}>Rename</div>
                                         <div className="remove" onClick={this.deleteDocument}>Remove</div>

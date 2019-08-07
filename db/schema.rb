@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_175212) do
+ActiveRecord::Schema.define(version: 2019_08_07_002252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2019_08_05_175212) do
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_documents_on_title"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer "doc_id", null: false
+    t.integer "user_id", null: false
+    t.string "permission_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doc_id", "user_id"], name: "index_permissions_on_doc_id_and_user_id", unique: true
+    t.index ["doc_id"], name: "index_permissions_on_doc_id"
+    t.index ["user_id"], name: "index_permissions_on_user_id"q
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactQuill, { Quill } from 'react-quill'
+import ReactQuill from 'react-quill'
 
 const Size = ReactQuill.Quill.import("attributors/style/size")
 Size.whitelist = ['8px', '9px', '10px', '11px', '12px', '14px', '18px', '24px', '30px', '36px', '48px', '60px']
@@ -49,7 +49,8 @@ class QuillToolbar extends React.Component {
                     ]}],
                 [{ 'size': ['8px', '9px', '10px', '11px', '12px', '14px', '18px', '24px', '30px', '36px', '48px', '60px'] }],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote', { 'color': [] }, { 'background': [] }],
-                ['link', 'image'],
+                [{ 'script': 'sub' }, { 'script': 'super' }  ],
+                ['code', 'formula', 'link', 'image'],
                 [{ 'align' : '' }, { 'align' : 'center' }, { 'align' : 'right' }, { 'align' : 'justify' }],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
                 ['clean']

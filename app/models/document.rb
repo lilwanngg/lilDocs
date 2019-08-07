@@ -15,5 +15,10 @@ class Document < ApplicationRecord
 
     belongs_to :user
 
+    has_many :permissions,
+        primary_key: :id,
+        foreign_key: :doc_id,
+        class_name: :Permission
+
 
 end

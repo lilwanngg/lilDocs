@@ -5,7 +5,7 @@
 }
 
 .recent-wrapper {
-    width: 57%;
+    width: 90%;
     height: 330px;
     display: flex;
     margin: 0 auto;
@@ -72,14 +72,14 @@ a {
     width: 30px;
     position: relative;
     right: 0px;
-    bottom: 2px;
-    font-size: 30px;
-    color: rgb(70, 70, 70);
+    font-size: 11px;
+    color: rgb(92, 92, 92);
     display: flex;
     align-items: center;
     justify-content: center;   
     outline: none; 
     user-select: none;
+    transform: rotate(90deg)
 }
 
 .dotDropdown {
@@ -90,7 +90,8 @@ a {
     background-color: transparent;
     margin-left: 140px;
     position: relative;
-    bottom: 35px;
+    bottom: 38px;
+    right: 4px;
 }
 
 .dotDropdown:hover {
@@ -103,8 +104,7 @@ a {
 
 .recent-docs-bar {
     padding-top: 18px;
-    /* padding-bottom: 15px; */
-    font-weight: 500;
+    font-weight: 600;
     height: 64px;
     position: sticky;
     top: 64px;
@@ -117,9 +117,9 @@ a {
 
 .dotDropdown-display {
     position: absolute;
-    border: 1px solid rgb(213, 213, 213);
-    left: -80px;
-    top: 60px;
+    border: 1px solid rgb(182, 179, 179);
+    left: -20px;
+    top: -20px;
     height: 80px;
     width: 180px;
     border-radius: 3px;
@@ -129,6 +129,7 @@ a {
     flex-direction: column;
     margin-left: 10px;
     background-color: white;
+    transform: rotate(270deg);
 }
 
 
@@ -146,4 +147,18 @@ a {
 
 .hideMenu {
     display: none;
+}
+
+
+.doc-icon-small {
+    height: 30px;
+}
+
+.bottom-info-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 8px;
+    right: 8px;
+
 }
