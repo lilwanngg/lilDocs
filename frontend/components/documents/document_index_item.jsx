@@ -35,7 +35,7 @@ class DocIndexItem extends React.Component {
 
     render() {
         const { doc } = this.props;
-        const date = new Date(doc.created_at);
+        const date = new Date(doc.updated_at);
         const fDate = date.toDateString().split(' ').slice(1);
         fDate[1] += ",";
         const fDateString = fDate.join(' ');

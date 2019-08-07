@@ -84,7 +84,7 @@ class QuillToolbar extends React.Component {
                     onChange={this.update}
                 >
                 </ReactQuill>
-                <div className="page-break"></div>
+                {/* <div className="page-break"></div> */}
             </div>
         )
     }

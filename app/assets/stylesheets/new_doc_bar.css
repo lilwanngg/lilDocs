@@ -3,7 +3,7 @@
     flex-direction: column;
     color: rgb(72, 71, 71);
     margin: 0 auto;
-    width: 90%;
+    max-width: 90%;
 }
 
 .temp-wrapper {
