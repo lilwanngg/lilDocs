@@ -5,7 +5,8 @@ class Api::DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.all
+    # @documents = current_user.documents.sort_by &:updated_at comment back in after finishing permissions things
+    @documents = Document.all.where(user_id: current_user.id)
     render :index
   end
 

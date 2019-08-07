@@ -12,9 +12,9 @@ function Modal({ modal, closeModal }) {
         case 'editTitle':
             component = <EditTitle documentId={modal.docId}/>;
             break;
-        // case 'share':
-        //   component = <SignupFormContainer />;
-        //   break;
+        case 'share':
+          component = <ShareDocContainer />;
+          break;
         default:
             return null;
     }

@@ -81,8 +81,10 @@ class DocNavBar extends React.Component {
             < div className="doc-nav-bar sticky-nav" >
                 <div className="doc-nav-left">
                     <Link to="/documents" className="doc-index-btn"><img className="doclogo" src={window.docURL} /></Link>
-                    {topLogo}
-                    {updatedAt}
+                    <div>
+                        {topLogo}
+                        {updatedAt}  
+                    </div>
                 </div>
                 <div className="doc-nav-right">
                     {/* <ShareButton /> */}
