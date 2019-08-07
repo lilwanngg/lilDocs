@@ -63,6 +63,7 @@
 .ql-editor {
     width: 820px;
     min-height: 1050px;
+    /* overflow:  */
     padding: 100px 80px;
     margin: 0 auto;
     margin-top: 10px;
