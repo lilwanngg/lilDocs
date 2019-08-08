@@ -12,7 +12,6 @@ class DocumentIndex extends React.Component {
     render() {
         const { documents, user } = this.props
         const docLis = documents.map( (doc, idx) => {
-            debugger
            return (
                 <DocIndexItem 
                 doc={doc} key={idx} 

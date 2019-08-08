@@ -22,7 +22,6 @@ export const logout = () => {
 }
 
 export const findEmail = (email) => {
-    debugger
     return $.ajax({
         method: "GET",
         url: "api/verify_user",

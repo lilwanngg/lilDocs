@@ -55,7 +55,6 @@ class DocShow extends React.Component {
         if (doc.current_user_permission_id) {
             type = doc.current_user_permission_id.permission_type
         }
-        debugger
         return(
             <>
                 <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>

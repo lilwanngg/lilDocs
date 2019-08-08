@@ -22,7 +22,6 @@ const sessionReducer = (state = _nullSession, action) => {
             newState = merge({}, state, { loginuser: user });
             return newState
         case FIND_USER:
-            debugger
             user = action.user;
             newState = merge({}, state, { shareuser: user });
             return newState
