@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const VERIFY_USER = "VERIFY_USER";
+export const FIND_USER = "FIND_USER";
 
 export const receiveCurrentUser = (user) => ({
     type: RECEIVE_CURRENT_USER,
@@ -24,10 +25,22 @@ export const checkEmail = (user) => ({
     user
 })
 
+export const findUser = (user) => ({
+    type: FIND_USER,
+    user
+})
+
 export const findEmail = (input) => dispatch => {
     return SessionsUtil.findEmail(input.email)
         .then((user => { 
             dispatch(checkEmail(user))}),
+            (errors => dispatch(receiveErrors(errors.responseJSON))))
+}
+
+export const fetchUser = (input) => dispatch => {
+    return SessionsUtil.checkPermission(input)
+        .then((user => {
+            dispatch(findUser(user))}),
             (errors => dispatch(receiveErrors(errors.responseJSON))))
 }
 

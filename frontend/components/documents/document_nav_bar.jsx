@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { ShareButton } from './share_button'
 import { Link } from 'react-router-dom'
 import { logout } from "../../actions/session_actions"
+import { openModal } from '../../actions/modal_actions'
 
 class DocNavBar extends React.Component {
     constructor(props) {
@@ -67,7 +67,7 @@ class DocNavBar extends React.Component {
         ) : (
             <p id="nav-logo"><img src={window.lilDocsURL}/></p>
         )
-        // let shareButton = doc ? () : (<></>)  to be filled in at the share portion
+        const shareButton = doc ? (<button className="doc-share" onClick={() => this.props.openModal({ type: "share", docId: doc.id })}>Share</button>) : (<></>)
         const dispTime = new Date(this.props.updatedAt)
         let time = dispTime.toTimeString().split(' ')[0].slice(0, -3)
         let hour = parseInt(time.slice(0,2))
@@ -87,7 +87,7 @@ class DocNavBar extends React.Component {
                     </div>
                 </div>
                 <div className="doc-nav-right">
-                    {/* <ShareButton /> */}
+                    {shareButton}
                     <div ref={iconRef => this.iconRef = iconRef} className="initialsCircle" id="dropdown-btn">
                         {first_name[0].toUpperCase()}
                     </div>
@@ -115,7 +115,8 @@ class DocNavBar extends React.Component {
 }
 
 const mdp = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    openModal: (modal) => dispatch(openModal(modal))
 })
 
 

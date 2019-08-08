@@ -39,6 +39,8 @@ class DocIndexItem extends React.Component {
         const fDate = date.toDateString().split(' ').slice(1);
         fDate[1] += ",";
         const fDateString = fDate.join(' ');
+        const shareicon = doc.permission_ids.length !== 1 ? 
+            (<img className="doc-icon-small doc-share-small" src={window.smallShareIconURL} />) : (<></>)
         return (
             <li onClick={this.handleClick}>
                 <div className="one-doc">
@@ -47,7 +49,9 @@ class DocIndexItem extends React.Component {
                         <p>{doc.title}</p>
                         <div className="date-str">
                             <div className="bottom-info-row">
-                                <img className="doc-icon-small" src={window.smallDocIconURL}/>{fDateString}
+                                <img className="doc-icon-small" src={window.smallDocIconURL} />
+                                {shareicon}
+                                {fDateString}
                             </div>
                             <div className="dotDropdown">
                                 <div onFocus={this.handleDotFocus} onBlur={this.handleDotBlur} tabIndex="1" className="dots">

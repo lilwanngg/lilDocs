@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="labelinput">
                 <label className={`email ${errs.length ? "errored-label" : ""}`}>Email</label>
-                <input className={`emailinput ${errs.length ? "errored-bord" : "" }`} type="text" value={this.state.email} autoocus="" onChange={this.handleInput('email')} placeholder="Email" required />
+                <input className={`emailinput ${errs.length ? "errored-bord" : "" }`} type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required />
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="labelinput">
                 <label className={`password ${errs.length ? "errored-label" : ""}`}>Enter your password</label>
-                <input className={`passwordinput ${errs.length ? "errored-bord" : ""}`} type="password" value={this.state.password} autofocus="" onChange={this.handleInput('password')} placeholder="Enter your password" required/>
+                <input className={`passwordinput ${errs.length ? "errored-bord" : ""}`} type="password" value={this.state.password} onChange={this.handleInput('password')} placeholder="Enter your password" required/>
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
@@ -105,7 +105,7 @@ class SessionForm extends React.Component {
                 <div className="names">
                   <div className="labelinput" id="li1">
                     <label id="label1">First name</label>
-                  <input id="input1" type="text" value={this.state.first_name} autofocus="" onChange={this.handleInput('first_name')} placeholder="First name" required/>
+                  <input id="input1" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} placeholder="First name" required/>
                   </div>
                   <div className="labelinput" id="li2">
                     <label id="label2">Last name</label>

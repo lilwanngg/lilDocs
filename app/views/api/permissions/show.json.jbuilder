@@ -1,0 +1,1 @@
+json.extract! @permission, :id, :user_id, :doc_id, :permission_type

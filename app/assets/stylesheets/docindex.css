@@ -154,6 +154,10 @@ a {
     height: 30px;
 }
 
+.doc-share-small {
+    margin-left: -8px;
+}
+
 .bottom-info-row {
     display: flex;
     align-items: center;

@@ -3,7 +3,7 @@ import DocNavBar from "./document_nav_bar.jsx"
 import { connect } from 'react-redux'
 import { fetchDocument, updateDocument } from '../../actions/document_actions'
 import QuillToolbar from '../richtext/quill_toolbar-clean'
-import QuillNoToolbar from '../richtext/quill_toolbar'
+// import QuillNoToolbar from '../richtext/quill_toolbar'
 
 
 class DocShow extends React.Component {
@@ -51,10 +51,15 @@ class DocShow extends React.Component {
     render () {
         if (!this.props.doc) {return null}
         const { doc, user } = this.props
+        let type
+        if (doc.current_user_permission_id) {
+            type = doc.current_user_permission_id.permission_type
+        }
+        debugger
         return(
             <>
                 <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
-                <QuillToolbar doc={doc} updateDocument={this.props.updateDocument}/>
+                <QuillToolbar doc={doc} updateDocument={this.props.updateDocument} type={type}/>
                 {/* <QuillNoToolbar doc={doc} updateDocument={this.props.updateDocument} /> */}
             </>
         )
@@ -73,7 +78,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         fetchDocument: (id) => dispatch(fetchDocument(id)),
-        updateDocument: doc => dispatch(updateDocument(doc))
+        updateDocument: doc => dispatch(updateDocument(doc)),
     }
 }
 
