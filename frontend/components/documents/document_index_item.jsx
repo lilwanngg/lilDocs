@@ -39,7 +39,8 @@ class DocIndexItem extends React.Component {
         const fDate = date.toDateString().split(' ').slice(1);
         fDate[1] += ",";
         const fDateString = fDate.join(' ');
-        const shareicon = doc.permission_ids.length !== 1 ? 
+        debugger
+        const shareicon = (doc.permission_ids.length !== 1 ) ? 
             (<img className="doc-icon-small doc-share-small" src={window.smallShareIconURL} />) : (<></>)
         return (
             <li onClick={this.handleClick}>

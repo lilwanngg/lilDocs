@@ -24,9 +24,9 @@ class NewDocBar extends React.Component {
         const { user, createDocument, updateDocument, createPermission } = this.props
         if (body !== "") {
             createDocument()
-                .then( (res) => createPermission({ user_id: user.id, doc_id: res.document.id, permission_type: "edit" }))
-                .then( (res2) => updateDocument({ id: res2.permission.doc_id, title: "Untitled document", content: body}))
-                .then( (res3) => {this.props.history.push(`/documents/${res3.document.id}`)
+            .then( (res) => createPermission({ user_id: user.id, doc_id: res.document.id, permission_type: "edit" }))
+            .then( (res2) => updateDocument({ id: res2.permission.doc_id, title: "Untitled document", content: body}))
+            .then( (res3) => {this.props.history.push(`/documents/${res3.document.id}`)
             })
         } else {
             createDocument()
