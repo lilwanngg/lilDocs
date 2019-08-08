@@ -58,3 +58,16 @@
     height: 60px;
     width: 60px;
 }
+
+.view-or-edit {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background: white;
+}
+
+.view-or-edit img {
+    object-fit: contain;
+    height: 35px;
+}
+

@@ -73,7 +73,7 @@
   color: white;
   font-weight: 100;
   font-size: 44px;
-  z-index: 50;
+  z-index: 10;
 }
 
 .typewriter p {

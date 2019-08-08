@@ -111,12 +111,58 @@ a {
     position: sticky;
     top: 64px;
     background: white;
-    z-index: 15;
+    z-index: 20;
     margin-left: 10px;
     display: flex;
     align-items: center;
 }
 
+/* experimental */
+/* .recent-docs-bar {
+    padding-top: 18px;
+    font-weight: 600;
+    height: 64px;
+    position: sticky;
+    top: 64px;
+    background: white;
+    z-index: 15;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+} */
+/* .recent-docs-bar {
+ height: 80px; 
+ position: sticky;
+ top: -16px; 
+ z-index: 20;
+ -webkit-backface-visibility: hidden;
+}
+
+.recent-docs-bar::before,
+.recent-docs-bar::after {
+ content: '';
+ display: block;
+ height: 16px;
+ position: sticky;
+}
+.recent-docs-bar::before {
+ top: 64px;
+ box-shadow: 0px 2px 5px rgba(240, 240, 240, 0.877);
+}
+.recent-docs-bar::after {
+ background: linear-gradient(rgba(184, 184, 184, 0.194), rgba(255, 255, 255, 0.3));
+ top: 64px;
+ z-index: 100;
+}
+.recent-docs-bar >div {
+ background: white;
+ height: 34px;
+ padding: 20px;
+ position: sticky;
+ top: 64px;
+ margin-top: -16px;
+ z-index: 25;
+} */
 .dotDropdown-display {
     position: absolute;
     border: 1px solid rgb(182, 179, 179);

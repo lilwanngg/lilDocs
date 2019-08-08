@@ -57,7 +57,7 @@ class DocShow extends React.Component {
         }
         return(
             <>
-                <DocNavBar doc={doc} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
+                <DocNavBar doc={doc} type={type} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
                 <QuillToolbar doc={doc} updateDocument={this.props.updateDocument} type={type}/>
                 {/* <QuillNoToolbar doc={doc} updateDocument={this.props.updateDocument} /> */}
             </>

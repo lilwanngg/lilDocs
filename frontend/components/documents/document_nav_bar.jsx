@@ -67,7 +67,17 @@ class DocNavBar extends React.Component {
         ) : (
             <p id="nav-logo"><img src={window.lilDocsURL}/></p>
         )
-        const shareButton = doc ? (<button className="doc-share" onClick={() => this.props.openModal({ type: "share", docId: doc.id })}>Share</button>) : (<></>)
+        let shareButton
+        let viewOrEdit
+        if (this.props.type === "edit"){
+            shareButton = doc ? (<button className="doc-share" onClick={() => this.props.openModal({ type: "share", docId: doc.id })}>Share</button>) : (<></>)
+            viewOrEdit = (<div className="view-or-edit"><img src={window.editingURL}/></div>)
+        } else if (this.props.type === "view") {
+            shareButton = (<></>)
+            viewOrEdit = (<div className="view-or-edit"><img src={window.viewingURL} /></div>)
+        } else {
+            shareButton = (<></>)
+        }
         const dispTime = new Date(this.props.updatedAt)
         let time = dispTime.toTimeString().split(' ')[0].slice(0, -3)
         let hour = parseInt(time.slice(0,2))
@@ -88,6 +98,7 @@ class DocNavBar extends React.Component {
                 </div>
                 <div className="doc-nav-right">
                     {shareButton}
+                    {viewOrEdit}
                     <div ref={iconRef => this.iconRef = iconRef} className="initialsCircle" id="dropdown-btn">
                         {first_name[0].toUpperCase()}
                     </div>
