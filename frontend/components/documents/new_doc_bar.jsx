@@ -31,7 +31,7 @@ class NewDocBar extends React.Component {
         } else {
             createDocument()
                 .then( (res) => createPermission({user_id: user.id, doc_id: res.document.id, permission_type: "edit"})
-                .then( (res2) => this.props.history.push(`/documents/${res2.document.doc_id}`)))
+                .then( (res2) => this.props.history.push(`/documents/${res2.permission.doc_id}`)))
         }
     }
 
