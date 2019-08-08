@@ -75,18 +75,34 @@ class QuillToolbar extends React.Component {
 
     render() {
         if (!this.props.doc) { return null }
-        return (
-            <div className="editing-background">
-                <ReactQuill
-                    theme="snow"
-                    defaultValue={this.state.content}
-                    modules={this.modules}
-                    onChange={this.update}
-                >
-                </ReactQuill>
-                {/* <div className="page-break"></div> */}
-            </div>
-        )
+        let readOnly
+        this.props.type === "view" ? readOnly = true : readOnly = false
+        if (readOnly) {
+            return (
+                <div className="editing-background">
+                    <ReactQuill
+                        theme="snow"
+                        defaultValue={this.state.content}
+                        modules={this.modules}
+                        onChange={this.update}
+                        readOnly="true"
+                    >
+                    </ReactQuill>
+                </div>
+            )
+        } else {
+            return (
+                <div className="editing-background">
+                    <ReactQuill
+                        theme="snow"
+                        defaultValue={this.state.content}
+                        modules={this.modules}
+                        onChange={this.update}
+                    >
+                    </ReactQuill>
+                </div>
+            )
+        }
     }
 
 }

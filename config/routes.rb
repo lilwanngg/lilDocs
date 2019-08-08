@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     
     get "/verify_user", to: "users#verify_user"
+    get "/email_to_permission", to: "users#email_to_permission"
 
 
   end

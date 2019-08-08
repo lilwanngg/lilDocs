@@ -15,7 +15,7 @@
   transform: translate(-50%, -50%);
 }
 
-.edit-title-form {
+.edit-title-form, .share-doc-form {
     display: flex;
     flex-direction: column;
     padding: 20px 30px 0px;
@@ -28,11 +28,26 @@
     border-radius: 10px;
 }
 
-.edit-label {
+.share-doc-form {
+    height: 230px;
+    width: 500px;
+    border-radius: 10px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+.edit-label, .share-label {
     font-size: 21px;
     font-weight: 400;
     margin-bottom: 10px;
     color: rgb(50, 50, 50);
+}
+
+.share-label {
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .sub-edit-label {
@@ -52,11 +67,79 @@
     padding: 5px;
 }
 
+.share-input-row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.share-button-pen {
+    height: 39px;
+    border-radius: 3px;
+    border: 1px solid rgb(179, 179, 179);
+    padding-right: 1px;
+    padding-left: 1px;
+    background-color: rgb(244,244,244);
+}
+
+.share-button-pen:hover {
+    border: 1px solid rgb(140, 140, 140);
+}
+
+.share-input {
+    padding: 5px 5px 5px 15px;
+    height: 28px;
+    font-size: 16px;
+    width: 79%;
+    border: 1px solid rgb(213, 213, 213);
+    box-shadow: 0px 2px 1px rgb(223, 223, 223);
+    outline: none;
+}
+
 .edit-input:focus {
     border: 1px solid #4386fc;
 }
 
-.edit-button {
+.share-option {
+    font-size: 14px;
+    padding: 5px;
+    
+}
+
+.share-option:hover {
+    background-color: rgb(227, 227, 227);
+
+}
+
+
+
+.share-options {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    width: 100px;
+    text-align: right;
+    border: 1px solid rgb(213,213,213);
+    right: 40px;
+    bottom: 40px;
+    padding: 3px 5px 3px 0px;
+    background: white;
+    
+}
+
+.share-on {
+    display: block;
+}
+
+.share-options div {
+    
+    display: flex;
+
+    justify-content: space-around;
+}
+
+
+.edit-button, .share-button, .doc-share {
     border-radius: 5px;
     height: 40px;
     width: 100px;
@@ -70,6 +153,20 @@
 
 }
 
-.edit-button:hover {
+.share-button {
+    margin-left: 0px;
+}
+
+.edit-button:hover, .share-button:hover {
     background-color: #5592fa;
+}
+
+.doc-share {
+    height: 35px;
+    width: 85px;
+    position: relative;
+    right: 15px;
+    bottom: 1px;
+    font-size: 15px;
+    font-weight: 600;
 }

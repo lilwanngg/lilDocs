@@ -14,6 +14,10 @@
     border-bottom: 1px solid lightgray;
 }
 
+.share-errors {
+    list-style-type: none;
+    
+}
 
 
 .doc-nav-right {

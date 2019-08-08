@@ -1,5 +1,5 @@
 import { merge } from 'lodash'
-import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, VERIFY_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, RECEIVE_ERRORS, VERIFY_USER, FIND_USER } from '../actions/session_actions';
 
 const _nullSession = {
     id: null
@@ -20,6 +20,11 @@ const sessionReducer = (state = _nullSession, action) => {
         case VERIFY_USER:
             user = action.user;
             newState = merge({}, state, { loginuser: user });
+            return newState
+        case FIND_USER:
+            debugger
+            user = action.user;
+            newState = merge({}, state, { shareuser: user });
             return newState
         default:
             return state;

@@ -1,14 +1,25 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import { updateDocument, fetchDocument } from '../../actions/document_actions';
+import { fetchUser, receiveErrors } from '../../actions/session_actions'
+import { createPermission } from '../../actions/permission_actions'
 import { closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom'
 
-class EditTitle extends React.Component {
+class ShareDoc extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { doc: this.props.doc, email: "" }
+        this.state = {  session: this.props.session, docId: this.props.docId.id, email: "", type: "edit", clicked: false}
+        this.checkUser = this.checkUser.bind(this)
     }
+
+    componentDidMount() {
+        this.props.removeErrors()
+    }
+
+    checkUser(type) {
+        this.props.fetchUser({email: this.state.email, docId: this.props.documentId, type: type}).then( () =>this.props.closeModal())
+    }
+    
 
     update(field) {
         return (e) => {
@@ -17,36 +28,56 @@ class EditTitle extends React.Component {
     }
 
     render() {
-        // if (!this.props.doc) { return null }
-        return (
-            <form className="share-doc-form modal-child" onClick={e => e.stopPropagation()}>
-                <label className="share-label">Share with others</label>
-                <label className="sub-share-label">Enter email</label>
-                <div>
-                    <input className="share-input" type="text" value={this.state.email} onChange={this.update('email')} />
-                    <div className="share-dropdown">
-                        <li>Can Edit</li>
-                        <li>Can View</li>
+        let { type } = this.state
+        const { errors } = this.props
+        const errs = errors.map( (err, idx) => { return (<li className="share-errors" key={`err${idx}`}>{err}</li>) })
+        if (errs.length) {
+            return ( 
+                <form className="share-doc-form modal-child" onClick={e => e.stopPropagation()}>
+                    <label className="share-label">Errors</label>
+                    {errs}
+                    <input type="submit" className="share-button" value="OK" onClick={this.props.closeModal}/>
+                </form>
+            )
+        } else {
+            return (
+                <form className="share-doc-form modal-child" onClick={e => e.stopPropagation()} onSubmit={() => this.checkUser(type)} >
+                    <label className="share-label">Share with others</label>
+                    <label className="sub-share-label">Enter email and choose permission</label>
+                    <div className="share-input-row">
+                        <input className="share-input" type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email address..." />
+                        <div className="share-dropdown" onClick={() => this.setState({ clicked: !this.state.clicked })}>
+                            <img className="share-button-pen" src={`${this.state.type === "edit" ? window.editURL : window.viewURL}`}/>
+                            <div className={`share-options ${this.state.clicked ? "share-on" : ""}`}>
+                                <div className="share-option" onClick={() => this.setState({ type: "edit", clicked: !this.state.clicked })}>{this.state.type === "edit" ? (<div>✔</div>) : (<div></div>)}Can edit</div>
+                                <div className="share-option" onClick={() => this.setState({ type: "view", clicked: !this.state.clicked })}>{this.state.type === "view" ? (<div>✔</div>) : (<div></div>)}Can view</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <input className="share-button" type="submit" onClick={this.editTitle} value="OK" />
-            </form>
-        )
+                    <input type="submit" className="share-button" value="Done"/>
+                    {/* <button type="button" className="share-button" onClick={() => this.checkUser(type)} value="Done" /> */}
+                </form>
+            )
+
+        }
     }
 }
 
 const msp = (state, ownProps) => {
     return {
-        doc: state.entities.documents[ownProps.match.params.id]
+        docId: state.entities.documents[ownProps.documentId],
+        user: state.session.shareuser,
+        errors: state.errors.session,
+
     };
 };
 
 const mdp = dispatch => {
     return {
-        // editTitle: (doc) => dispatch(updateDocument(doc)),
         closeModal: () => dispatch(closeModal()),
-        // fetchDocument: (id) => dispatch(fetchDocument(id))
-        //one for send permission
+        createPermission: (permission) => dispatch(createPermission(permission)),
+        removeErrors: () => dispatch(receiveErrors([])),
+        fetchUser: (email) => dispatch(fetchUser(email))
     };
 };
 

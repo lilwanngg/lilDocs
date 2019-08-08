@@ -22,9 +22,18 @@ export const logout = () => {
 }
 
 export const findEmail = (email) => {
+    debugger
     return $.ajax({
         method: "GET",
         url: "api/verify_user",
         data: { email }
+    })
+}
+
+export const checkPermission = (permission) => {
+    return $.ajax({
+        method: "GET",
+        url: "api/email_to_permission",
+        data: { email: permission.email, doc_id: permission.docId, type: permission.type }
     })
 }
