@@ -9,7 +9,6 @@ const permissionsReducer = (state = {}, action) => {
         case RECEIVE_PERMISSION:
             merge( {}, state, { [action.permission.id]: action.permission})
         case REMOVE_PERMISSION:
-            debugger
             let newState = merge({}, state)
             delete newState[action.id]
             return newState
