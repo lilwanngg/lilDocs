@@ -17,7 +17,6 @@ const App = () => (
         <UserRoute path="/verify" component={LoginFormContainer} />
         <AuthRoute path="/signin" component={CheckEmailContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
-        {/* <Route path="/about" component={SplashboxContainer} /> */}
     <Switch>
         <ProtectedRoute path="/documents/:documentId" component={DocShow} />
         <ProtectedRoute path="/documents" component={DocumentIndexContainer} />

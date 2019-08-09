@@ -8,3 +8,4 @@
 
 User.create!({first_name: "Guest", last_name: "User", email: "guestuser@demo.com", password: "guestuser"})
 
+

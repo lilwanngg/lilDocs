@@ -27,7 +27,7 @@ class QuillToolbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = { content: this.props.doc.content }
-        this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
+        this.debouncedUpdate = this.debounce(this.props.updateDocument, 2000)
 
         this.modules = {
             toolbar: [

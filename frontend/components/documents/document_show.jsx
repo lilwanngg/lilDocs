@@ -12,7 +12,7 @@ class DocShow extends React.Component {
         let _isMounted = false;
         super(props)
         this.state = {title: "", content: "", updated_at: ""}
-        this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
+        this.debouncedUpdate = this.debounce(this.props.updateDocument, 2000)
     }
 
     componentDidMount() {

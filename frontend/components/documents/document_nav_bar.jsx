@@ -11,7 +11,7 @@ class DocNavBar extends React.Component {
         this.handlePicClick = this.handlePicClick.bind(this)
         this.handleLogout = this.handleLogout.bind(this)
         this.handleClick = this.handleClick.bind(this)
-        this.debouncedUpdate = this.debounce(this.props.updateDocument, 3000)
+        this.debouncedUpdate = this.debounce(this.props.updateDocument, 2000)
     }
 
     update(field) {
@@ -58,23 +58,28 @@ class DocNavBar extends React.Component {
         this.props.logout()
     }
 
+    selectAll(title) {
+        document.getElementById(title).focus()
+        document.getElementById(title).select()
+    }
+
     render() {
         const { doc, clicked } = this.state
-        const { first_name, last_name, email  } = this.props.user
+        const { first_name, last_name, email, id  } = this.props.user
         const topLogo = doc ? (
-            <input className={`doctitle ${doc.title === "Untitled document" ? "default-title" : ""} `} type="text" value={doc.title} 
+            <input onClick={() => this.selectAll('title')} id="title" className={`doctitle ${doc.title === "Untitled document" ? "default-title" : ""} `} type="text" value={doc.title} 
             onChange={this.update('title')} />
         ) : (
             <p id="nav-logo"><img src={window.lilDocsURL}/></p>
         )
         let shareButton
         let viewOrEdit
-        if (this.props.type === "edit"){
-            shareButton = doc ? (<button className="doc-share" onClick={() => this.props.openModal({ type: "share", docId: doc.id })}>Share</button>) : (<></>)
-            viewOrEdit = (<div className="view-or-edit"><img src={window.editingURL}/></div>)
+        if (this.props.type === "edit" && doc.user_id === id ){
+            shareButton = doc ? (<button className="doc-share" onFocus={() => this.props.openModal({ type: "share", docId: doc.id })}>Share</button>) : (<></>)
+            viewOrEdit = (<div className="view-or-edit"><img src={window.editingURL} />Editing</div>)
         } else if (this.props.type === "view") {
             shareButton = (<></>)
-            viewOrEdit = (<div className="view-or-edit"><img src={window.viewingURL} /></div>)
+            viewOrEdit = (<div className="view-or-edit"><img src={window.viewingURL} />Viewing</div>)
         } else {
             shareButton = (<></>)
         }

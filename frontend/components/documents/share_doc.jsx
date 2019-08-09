@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { fetchUser, receiveErrors } from '../../actions/session_actions'
 import { createPermission } from '../../actions/permission_actions'
-import { closeModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom'
 
 class ShareDoc extends React.Component {
@@ -29,6 +29,7 @@ class ShareDoc extends React.Component {
 
     render() {
         let { type } = this.state
+        let modal
         const { errors } = this.props
         const errs = errors.map( (err, idx) => { return (<li className="share-errors" key={`err${idx}`}>{err}</li>) })
         if (errs.length) {
@@ -40,6 +41,7 @@ class ShareDoc extends React.Component {
                 </form>
             )
         } else {
+            modal = "shareform"
             return (
                 <form className="share-doc-form modal-child" onClick={e => e.stopPropagation()} onSubmit={() => this.checkUser(type)} >
                     <label className="share-label">Share with others</label>
@@ -54,8 +56,9 @@ class ShareDoc extends React.Component {
                             </div>
                         </div>
                     </div>
+                    {/* <a className="share-link" onClick={() => this.props.openModal({ type: "share-permissions", docId: doc.id })}>See who you've shared with</a> */}
+                    <a className="share-link" id="share-link" onClick={() => this.props.openModal({type: "share-permissions", docId: this.props.docId.id}) }>See who you've shared with</a>
                     <input type="submit" className="share-button" value="Done"/>
-                    {/* <button type="button" className="share-button" onClick={() => this.checkUser(type)} value="Done" /> */}
                 </form>
             )
 
@@ -75,6 +78,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
+        openModal: (modal) => dispatch(openModal(modal)),
         createPermission: (permission) => dispatch(createPermission(permission)),
         removeErrors: () => dispatch(receiveErrors([])),
         fetchUser: (email) => dispatch(fetchUser(email))

@@ -79,8 +79,11 @@
     border: 1px solid rgb(179, 179, 179);
     padding-right: 1px;
     padding-left: 1px;
+    object-fit: contain;
     background-color: rgb(244,244,244);
 }
+
+
 
 .share-button-pen:hover {
     border: 1px solid rgb(140, 140, 140);
@@ -100,13 +103,13 @@
     border: 1px solid #4386fc;
 }
 
-.share-option {
+.share-option, .perm-option {
     font-size: 14px;
     padding: 5px;
     
 }
 
-.share-option:hover {
+.share-option:hover, .perm-option:hover {
     background-color: rgb(227, 227, 227);
 
 }
@@ -124,7 +127,6 @@
     bottom: 40px;
     padding: 3px 5px 3px 0px;
     background: white;
-    
 }
 
 .share-on {
@@ -132,9 +134,7 @@
 }
 
 .share-options div {
-    
     display: flex;
-
     justify-content: space-around;
 }
 
@@ -170,3 +170,4 @@
     font-size: 15px;
     font-weight: 600;
 }
+

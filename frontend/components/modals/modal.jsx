@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import EditTitle from '../documents/edit_title'
 import ShareDocContainer from '../documents/share_doc'
+import SharePermissionsContainer from '../documents/share_permissions_container'
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -14,8 +15,11 @@ function Modal({ modal, closeModal }) {
             component = <EditTitle documentId={modal.docId}/>;
             break;
         case 'share':
-          component = <ShareDocContainer documentId={modal.docId}/>;
-          break;
+            component = <ShareDocContainer documentId={modal.docId}/>;
+            break;
+        case 'share-permissions':
+            component = <SharePermissionsContainer documentId={modal.docId}/>;
+            break;
         default:
             return null;
     }

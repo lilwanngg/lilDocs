@@ -12,7 +12,7 @@ class DocIndexItem extends React.Component {
     }
 
     deleteDocument(e) {
-        this.props.deleteDocument(this.props.doc.id);
+        this.props.deleteDocument(this.props.doc.id).then( () => this.setState({clicked: false}))
     }
 
     updateDocument(e) {

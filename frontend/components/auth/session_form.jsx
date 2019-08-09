@@ -39,7 +39,9 @@ class SessionForm extends React.Component {
 
   handleLinkClick(e) {
     e.preventDefault()
-    this.props.loginDemoUser()
+    this.props.loginDemoUser().then( () => {
+      this.props.history.push("/documents")
+    })
   }
 
   render() {
@@ -56,7 +58,7 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="labelinput">
                 <label className={`email ${errs.length ? "errored-label" : ""}`}>Email</label>
-                <input className={`emailinput ${errs.length ? "errored-bord" : "" }`} type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required />
+                <input className={`emailinput ${errs.length ? "errored-bord" : "" }`} type="email" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required />
                 <div className="errorsdiv"><ul className="errors">{errs}</ul></div>
               </div>
               <div className="demo">Don't want to make an account? Log in as the <a onClick={this.handleLinkClick}>Demo User.</a></div>
@@ -114,7 +116,7 @@ class SessionForm extends React.Component {
                 </div>
                 <div className="labelinput" id=" li3">
                   <label className={`${errors.some(el => el.includes("Email")) ? "errored-label" : ""}`}>Email</label>
-                  <input className={`${errors.some(el => el.includes("Email")) ? "errored-bord" : ""}`} id="input3" type="text" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required/>
+                  <input className={`${errors.some(el => el.includes("Email")) ? "errored-bord" : ""}`} id="input3" type="email" value={this.state.email} onChange={this.handleInput('email')} placeholder="Email" required/>
               </div>
               <div className="labelinput" id="li4" >
                   <label className={`${errors.some(el => el.includes("Password")) ? "errored-label" : ""}`}>Password</label>

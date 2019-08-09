@@ -20,6 +20,14 @@ export const createPermission = (permission) => {
     })
 }
 
+export const updatePermission = (permission) => {
+    return $.ajax({
+        method: "PATCH",
+        url: `api/permissions/${permission.id}`,
+        data: { permission }
+    })
+}
+
 
 export const deletePermission = (id) => {
     return $.ajax({
