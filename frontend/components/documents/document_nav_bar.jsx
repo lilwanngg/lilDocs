@@ -80,6 +80,9 @@ class DocNavBar extends React.Component {
         } else if (this.props.type === "view") {
             shareButton = (<></>)
             viewOrEdit = (<div className="view-or-edit"><img src={window.viewingURL} />Viewing</div>)
+        } else if (this.props.type === "edit" && doc.user_id !== id) {
+            shareButton = (<></>)
+            viewOrEdit = (<div className="view-or-edit"><img src={window.editingURL} />Editing</div>)
         } else {
             shareButton = (<></>)
         }

@@ -4,7 +4,7 @@ import React from 'react'
 class ShareIndexItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { type: "edit", open: false }
+        this.state = { type: this.props.perm.permission_type, open: false }
         this.handleEditClick = this.handleEditClick.bind(this)
         this.handleViewClick = this.handleViewClick.bind(this)
 
@@ -26,7 +26,9 @@ class ShareIndexItem extends React.Component {
 
 
     render ()  {
+
         const { perm, doc } = this.props
+        debugger
         return (
             <div className="user-share" onClick={e => e.stopPropagation()}>
                 <div className="left-info">
@@ -47,18 +49,18 @@ class ShareIndexItem extends React.Component {
                         <>
                         <div className="perm-dropdown" onClick={() => this.setState({ open: !this.state.open })}>
                             <img className="share-button-pen perm-pen" src={`${this.state.type === "edit" ? window.editURL : window.viewURL}`} />
-                            <div className={`perm-options ${this.state.open ? "share-on" : ""}`}>
+                            <div className={`perm-options ${this.state.open ? "share-perms-on" : ""}`}>
                                 <div className="perm-option" onClick={this.handleEditClick}>{this.state.type === "edit" ? (<div>✔</div>) : (<div></div>)}Can edit</div>
                                 <div className="perm-option" onClick={this.handleViewClick}>{this.state.type === "view" ? (<div>✔</div>) : (<div></div>)}Can view</div>
                             </div>
                         </div>
-                        <div className="delete-perm" onClick={ () => this.props.deletePermission(perm.id)}>
+                        <div className="delete-perm" onClick={ () => this.props.deletePermission(perm)}>
                             X
                         </div>
                         </>
                     )}
                 </div>
-                
+
             </div>
         )
     }

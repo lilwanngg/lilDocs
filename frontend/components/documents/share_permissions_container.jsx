@@ -32,11 +32,13 @@ class SharePermissions extends React.Component {
     render() {
         let { type } = this.state
         const { errors, deletePermission, updatePermission, docId, closeModal } = this.props
-        const sharedUsers = this.props.docId.permission_ids.reverse().map( (perm, idx) => {
+        debugger
+        const sharedUsers = this.props.docId.permission_ids.map( (perm, idx) => {
+            debugger
             return (
                     <li className="shared-users" key={`perm${idx}`}>
                         <SharePermissionIndexItem 
-                        perm={perm} 
+                        perm={docId.permission_ids[idx]} 
                         deletePermission={deletePermission} 
                         updatePermission={updatePermission}
                         doc={docId}/>
@@ -104,7 +106,7 @@ const mdp = dispatch => {
         fetchPermissions: () => dispatch(fetchPermissions()),
         removeErrors: () => dispatch(receiveErrors([])),
         fetchUser: (email) => dispatch(fetchUser(email)),
-        deletePermission: (id) => dispatch(deletePermission(id)),
+        deletePermission: (perm) => dispatch(deletePermission(perm)),
         updatePermission: (permission) => dispatch(updatePermission(permission))
     };
 };

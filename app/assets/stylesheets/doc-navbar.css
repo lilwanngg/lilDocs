@@ -82,6 +82,7 @@
     text-decoration: underline;
     position: relative;
     left: 10px;
+    user-select: none;
 }
 
 .signout-bar {

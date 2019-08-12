@@ -14,9 +14,9 @@ export const receiveOnePermission = (permission) => ({
     permission
 })
 
-export const removePermission = (id) => ({
+export const removePermission = (perm) => ({
     type: REMOVE_PERMISSION,
-    id
+    perm
 })
 
 export const fetchPermissions = () => dispatch => {
@@ -35,6 +35,6 @@ export const updatePermission = (permission) => dispatch => {
     return PermissionsUtil.updatePermission(permission).then(permission => dispatch(receiveOnePermission(permission)))
 }
 
-export const deletePermission = (id) => dispatch => {
-    return PermissionsUtil.deletePermission(id).then(permission => dispatch(removePermission(id)))
+export const deletePermission = (perm) => dispatch => {
+    return PermissionsUtil.deletePermission(perm).then(permission => dispatch(removePermission(perm)))
 }

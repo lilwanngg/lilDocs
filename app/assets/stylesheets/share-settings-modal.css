@@ -93,17 +93,21 @@ a.share-link {
 
 .perm-options {
     display: none;
-    position: relative;
-    top: 0px;
-    /* height: 60px; */
+    position: absolute;
+    top: 40px;
+    height: 60px;
     width: 100px;
     text-align: right;
     border: 1px solid rgb(213,213,213);
-    right: 40px;
+    right: 0px;
     bottom: 40px;
     padding: 3px 5px 3px 0px;
     background: white;
     z-index: 3; 
+}
+
+.perm-dropdown {
+    position: relative;
 }
 
 .perm-options div {
@@ -124,4 +128,8 @@ a.share-link {
 
 .existing-permissions {
     height: 300px;
+}
+
+.share-perms-on {
+    display: block !important;
 }

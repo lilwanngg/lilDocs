@@ -29,9 +29,9 @@ export const updatePermission = (permission) => {
 }
 
 
-export const deletePermission = (id) => {
+export const deletePermission = (perm) => {
     return $.ajax({
         method: "DELETE",
-        url: `api/permissions/${id}`
+        url: `api/permissions/${perm.id}`
     })
 }

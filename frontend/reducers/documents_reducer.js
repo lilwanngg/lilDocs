@@ -14,7 +14,10 @@ const documentsReducer = ( state = {}, action) => {
             delete newState[action.id]
             return newState
         case REMOVE_PERMISSION:
+            debugger
             newState = merge({}, state)
+            return newState
+            // delete newState[actin.perm.id]
         default:
             return state
     }
