@@ -31,13 +31,10 @@ class SharePermissions extends React.Component {
     }
 
     render() {
-        debugger
         if (!this.props.docPermissions.length) {return null}
         let { type } = this.state
         const { errors, deleteDocPermission, updateDocPermission, docId, closeModal, docPermissions } = this.props
-        debugger
         const sharedUsers = docPermissions.map( (perm, idx) => {
-            debugger
             return (
                     <li className="shared-users" key={`perm${idx}`}>
                         <SharePermissionIndexItem 
@@ -92,7 +89,6 @@ class SharePermissions extends React.Component {
 }
 
 const msp = (state, ownProps) => {
-    debugger
     return {
         docId: state.entities.documents[ownProps.documentId],
         user: state.session.shareuser,
@@ -100,7 +96,6 @@ const msp = (state, ownProps) => {
         docPermissions: Object.values(state.entities.permissions.doc)
 
     };
-    debugger
 };
 
 const mdp = dispatch => {

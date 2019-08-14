@@ -7,10 +7,8 @@ const docPermissionsReducer = (state = {}, action) => {
         case RECEIVE_DOC_PERMISSIONS:
             return action.permissions
         case RECEIVE_DOC_PERMISSION:
-            debugger
             return merge({}, state, { [action.permission.id]: action.permission })
         case REMOVE_DOC_PERMISSION:
-            debugger
             let newState = merge({}, state)
             delete newState[action.perm.id]
             return newState
