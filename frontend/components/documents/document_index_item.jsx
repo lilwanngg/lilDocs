@@ -44,7 +44,8 @@ class DocIndexItem extends React.Component {
         return (
             <li onClick={this.handleClick}>
                 <div className="one-doc">
-                    <img className="doc-thumbnail" src={window.sampleURL} />
+                    {/* <img className="doc-thumbnail" src={window.sampleURL} /> */}
+                    <div className="doc-thumbnail" dangerouslySetInnerHTML={ { __html: doc.content } }/>
                     <div className="doc-info">
                         <p>{doc.title}</p>
                         <div className="date-str">
