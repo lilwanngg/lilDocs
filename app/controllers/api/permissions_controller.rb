@@ -5,8 +5,11 @@ class Api::PermissionsController < ApplicationController
   end
   
   def index
-    @permissions = current_user.permissions
-    # @permissions = Permission.all.where(doc_id: params)
+    if params[:doc]
+      @permissions = Document.find_by(id: params[:doc][:id]).permissions.includes(:user)
+    else
+      @permissions = current_user.permissions
+    end
     render :index
   end
 

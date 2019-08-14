@@ -5,6 +5,22 @@ export const fetchPermissions = () => {
     })
 }
 
+export const fetchDocPermissions = ( doc ) => {
+    return $.ajax({
+        method: "GET",
+        url: "api/permissions",
+        data: { doc } 
+    })
+}
+
+export const fetchDocPermission = (doc) => {
+    return $.ajax({
+        method: "GET",
+        url: `api/permissions${doc.id}`,
+        data: { doc }
+    })
+}
+
 export const fetchPermission = (id) => {
     return $.ajax({
         method: "GET",
@@ -28,8 +44,22 @@ export const updatePermission = (permission) => {
     })
 }
 
+export const updateDocPermission = (permission) => {
+    return $.ajax({
+        method: "PATCH",
+        url: `api/permissions/${permission.id}`,
+        data: { permission }
+    })
+}
 
 export const deletePermission = (perm) => {
+    return $.ajax({
+        method: "DELETE",
+        url: `api/permissions/${perm.id}`
+    })
+}
+
+export const deleteDocPermission = (perm) => {
     return $.ajax({
         method: "DELETE",
         url: `api/permissions/${perm.id}`
