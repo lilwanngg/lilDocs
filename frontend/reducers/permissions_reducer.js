@@ -1,20 +1,11 @@
-import { RECEIVE_PERMISSIONS, RECEIVE_PERMISSION, REMOVE_PERMISSION } from '../actions/permission_actions'
-import { merge } from 'lodash'
+import { combineReducers } from 'redux'
+import userPermissionReducer from './user_permissions_reducer';
+import docPermissionReducer from './doc_permissions_reducer';
 
-const permissionsReducer = (state = {}, action) => {
-    Object.freeze(state)
-    switch (action.type) {
-        case RECEIVE_PERMISSIONS:
-            return action.permissions
-        case RECEIVE_PERMISSION:
-            merge( {}, state, { [action.permission.id]: action.permission})
-        case REMOVE_PERMISSION:
-            let newState = merge({}, state)
-            delete newState[action.id]
-            return newState
-        default:
-            return state
-    }
-}
 
-export default permissionsReducer
+const permissionReducer = combineReducers({
+    user: userPermissionReducer,
+    doc: docPermissionReducer
+})
+
+export default permissionReducer;

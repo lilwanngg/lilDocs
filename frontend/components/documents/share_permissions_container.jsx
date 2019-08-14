@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { fetchUser, receiveErrors } from '../../actions/session_actions'
-import { createPermission, fetchPermission, deletePermission, updatePermission, fetchPermissions } from '../../actions/permission_actions'
+import { createPermission, fetchPermission, deleteDocPermission, updateDocPermission, fetchPermissions, fetchDocPermissions } from '../../actions/permission_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom'
 import SharePermissionIndexItem from './share_permission_index_item'
@@ -9,12 +9,13 @@ import SharePermissionIndexItem from './share_permission_index_item'
 class SharePermissions extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { session: this.props.session, docId: this.props.docId.id, email: "", type: "edit", clicked: false }
+        this.state = { docPermissions: this.props.docPermissions, docId: this.props.docId.id, email: "", type: "edit", clicked: false }
         this.checkUser = this.checkUser.bind(this)
     }
 
     componentDidMount() {
-        this.props.removeErrors()
+        this.props.fetchDocPermissions(this.props.docId).then( (perms) => {
+            this.props.removeErrors() })
         this.props.fetchPermissions()
     }
 
@@ -30,17 +31,19 @@ class SharePermissions extends React.Component {
     }
 
     render() {
-        let { type } = this.state
-        const { errors, deletePermission, updatePermission, docId, closeModal } = this.props
         debugger
-        const sharedUsers = this.props.docId.permission_ids.map( (perm, idx) => {
+        if (!this.props.docPermissions.length) {return null}
+        let { type } = this.state
+        const { errors, deleteDocPermission, updateDocPermission, docId, closeModal, docPermissions } = this.props
+        debugger
+        const sharedUsers = docPermissions.map( (perm, idx) => {
             debugger
             return (
                     <li className="shared-users" key={`perm${idx}`}>
                         <SharePermissionIndexItem 
-                        perm={docId.permission_ids[idx]} 
-                        deletePermission={deletePermission} 
-                        updatePermission={updatePermission}
+                        perm={perm}
+                        deleteDocPermission={deleteDocPermission} 
+                        updateDocPermission={updateDocPermission}
                         doc={docId}/>
                     </li>
                 )
@@ -89,12 +92,15 @@ class SharePermissions extends React.Component {
 }
 
 const msp = (state, ownProps) => {
+    debugger
     return {
         docId: state.entities.documents[ownProps.documentId],
         user: state.session.shareuser,
         errors: state.errors.session,
+        docPermissions: Object.values(state.entities.permissions.doc)
 
     };
+    debugger
 };
 
 const mdp = dispatch => {
@@ -106,8 +112,9 @@ const mdp = dispatch => {
         fetchPermissions: () => dispatch(fetchPermissions()),
         removeErrors: () => dispatch(receiveErrors([])),
         fetchUser: (email) => dispatch(fetchUser(email)),
-        deletePermission: (perm) => dispatch(deletePermission(perm)),
-        updatePermission: (permission) => dispatch(updatePermission(permission))
+        deleteDocPermission: (perm) => dispatch(deleteDocPermission(perm)),
+        updateDocPermission: (permission) => dispatch(updateDocPermission(permission)),
+        fetchDocPermissions: (doc) => dispatch(fetchDocPermissions(doc))
     };
 };
 

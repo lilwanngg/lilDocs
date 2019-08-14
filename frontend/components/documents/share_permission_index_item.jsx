@@ -10,17 +10,18 @@ class ShareIndexItem extends React.Component {
 
     }
 
+
     handleEditClick() {
         const { perm } = this.props
         this.setState({ type: "edit", open: !this.state.open })
-        this.props.updatePermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "edit"})
+        this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "edit"})
         
     }
     
     handleViewClick() {
         const { perm } = this.props
         this.setState({ type: "view", open: !this.state.open })
-        this.props.updatePermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "view"})
+        this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "view"})
     }
 
 
@@ -28,7 +29,6 @@ class ShareIndexItem extends React.Component {
     render ()  {
 
         const { perm, doc } = this.props
-        debugger
         return (
             <div className="user-share" onClick={e => e.stopPropagation()}>
                 <div className="left-info">
@@ -45,7 +45,7 @@ class ShareIndexItem extends React.Component {
                     </div>
                 </div>
                 <div className="share-right">
-                    {doc.user_id === perm.user_id ? (<div className="perm-dropdown">Is owner</div>) : (
+                    {doc.user_id === perm.user.id ? (<div className="perm-dropdown">Is owner</div>) : (
                         <>
                         <div className="perm-dropdown" onClick={() => this.setState({ open: !this.state.open })}>
                             <img className="share-button-pen perm-pen" src={`${this.state.type === "edit" ? window.editURL : window.viewURL}`} />
@@ -54,7 +54,7 @@ class ShareIndexItem extends React.Component {
                                 <div className="perm-option" onClick={this.handleViewClick}>{this.state.type === "view" ? (<div>✔</div>) : (<div></div>)}Can view</div>
                             </div>
                         </div>
-                        <div className="delete-perm" onClick={ () => this.props.deletePermission(perm)}>
+                        <div className="delete-perm" onClick={ () => this.props.deleteDocPermission(perm)}>
                             X
                         </div>
                         </>
