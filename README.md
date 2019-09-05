@@ -2,3 +2,4 @@
 
 ![lildocsgif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/lildocs.gif)
 
+![sharinggif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/sharing.gif)
