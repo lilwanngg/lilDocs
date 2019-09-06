@@ -115,36 +115,38 @@ class QuillToolbar extends React.Component {
 * sharing component rendered via modal for seamless integration into the document show page
 * only document owners may share, and permissinos can be changed, updated, or deleted once granted
 * documents that are shared with other users have a sharing icon on the description within the document index page
-```
-    // one of two options when toggling permissions to be updated, the permission updates automatically by sending an action
-    // when the edit/view option is clicked from the dropdown
-    handleViewClick() {
-        const { perm } = this.props
-        this.setState({ type: "view", open: !this.state.open })
-        this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "view"})
-    }
-```
 
 ```
 <div className="share-right">
-                    {doc.user_id === perm.user.id ? (<div className="perm-dropdown">Is owner</div>) : (
-                        <>
-                        <div className="perm-dropdown" onClick={() => this.setState({ open: !this.state.open })}>
-                            <img className="share-button-pen perm-pen" src={`${this.state.type === "edit" ? window.editURL : window.viewURL}`} />
-                            <div className={`perm-options ${this.state.open ? "share-perms-on" : ""}`}>
-                                <div className="perm-option" onClick={this.handleEditClick}>{this.state.type === "edit" ? (<div>✔</div>) : (<div></div>)}Can edit</div>
-                                <div className="perm-option" onClick={this.handleViewClick}>{this.state.type === "view" ? (<div>✔</div>) : (<div></div>)}Can view</div>
-                            </div>
-                        </div>
-                        <div className="delete-perm" onClick={ () => this.props.deleteDocPermission(perm)}>
-                            X
-                        </div>
-                        </>
-                    )}
+    {doc.user_id === perm.user.id ? (<div className="perm-dropdown">Is owner</div>) : (
+        <>
+        <div className="perm-dropdown" onClick={() => this.setState({ open: !this.state.open })}>
+            <img className="share-button-pen perm-pen" src={`${this.state.type === "edit" ? window.editURL : window.viewURL}`} />
+            <div className={`perm-options ${this.state.open ? "share-perms-on" : ""}`}>
+                <div className="perm-option" onClick={this.handleEditClick}>{this.state.type === "edit" ? (<div>✔</div>) : (<div></div>)}Can edit</div>
+                <div className="perm-option" onClick={this.handleViewClick}>{this.state.type === "view" ? (<div>✔</div>) : (<div></div>)}Can view</div>
+            </div>
+        </div>
+        <div className="delete-perm" onClick={ () => this.props.deleteDocPermission(perm)}>
+            X
+        </div>
+        </>
+    )}
 </div>
 ```
 
 ![sharinggif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/sharing.gif)
+
+```
+// one of two options when toggling permissions to be updated, the permission updates automatically by sending an action
+// when the edit/view option is clicked from the dropdown
+handleViewClick() {
+    const { perm } = this.props
+    this.setState({ type: "view", open: !this.state.open })
+    this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "view"})
+}
+```
+
 
 
 ## Future Implementations
