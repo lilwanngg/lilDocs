@@ -18,7 +18,7 @@ Welcome to lilDocs! A full-stack, single-page GoogleDocs clone where users can c
 ### User Auth
 
 
-![logingif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/lildocs.gif)
+![logingif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/login.gif)
 ### Document Editing
 
 ![lildocsgif](https://github.com/lilwanngg/lilDocs/blob/master/app/assets/read_me_images/lildocs.gif)
