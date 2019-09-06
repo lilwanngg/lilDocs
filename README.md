@@ -28,6 +28,9 @@ Welcome to lilDocs! A full-stack, single-page GoogleDocs clone where users can c
 
 
 ## Future Implementations
+* `comments` users will be able to comment on documents, and the comments will dynamically move to match the position of the selected text
+* `document search bar` users will be able to search through documents with a search bar that filters while typing
+* `simultaneous editing` will allow users to work on documents at the same time through websockets
 
 
 
