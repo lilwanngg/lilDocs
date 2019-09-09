@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :permissions, only: [:create, :show, :update, :destroy, :index]
     resources :documents, only: [:create, :show, :index, :update, :destroy] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:create, :show, :index, :edit, :update, :destroy]
     end
     
     get "/verify_user", to: "users#verify_user"

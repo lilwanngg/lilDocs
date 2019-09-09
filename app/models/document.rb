@@ -11,7 +11,7 @@
 #
 
 class Document < ApplicationRecord 
-    validates :title, :user_id, presence: true
+    validates :title, presence: true
 
     belongs_to :user
 
@@ -19,6 +19,10 @@ class Document < ApplicationRecord
         primary_key: :id,
         foreign_key: :doc_id,
         class_name: :Permission
+
+    has_many :comments,
+        foreign_key: :doc_id,
+        class_name: :Comment
 
 
 end

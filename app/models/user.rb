@@ -19,13 +19,13 @@ class User < ApplicationRecord
 
   attr_reader :password
   after_initialize :ensure_session_token
-
-  # has_many :documents
   
   has_many :permissions
   has_many :documents,
     through: :permissions,
     source: :document
+
+  has_many :comments
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchDocument, updateDocument } from '../../actions/document_actions'
 import QuillToolbar from '../richtext/quill_toolbar-clean'
 // import QuillNoToolbar from '../richtext/quill_toolbar'
+import CommentIndexContainer from '../comments/comment_index_container'
 
 
 class DocShow extends React.Component {
@@ -58,6 +59,7 @@ class DocShow extends React.Component {
         return(
             <>
                 <DocNavBar doc={doc} type={type} user={user} updateDocument={this.props.updateDocument} updatedAt={doc.updated_at}/>
+                <CommentIndexContainer doc={doc}/>
                 <QuillToolbar doc={doc} updateDocument={this.props.updateDocument} type={type}/>
                 {/* <QuillNoToolbar doc={doc} updateDocument={this.props.updateDocument} /> */}
             </>

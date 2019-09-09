@@ -10,12 +10,10 @@ class ShareIndexItem extends React.Component {
 
     }
 
-
     handleEditClick() {
         const { perm } = this.props
         this.setState({ type: "edit", open: !this.state.open })
         this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "edit"})
-        
     }
     
     handleViewClick() {
@@ -24,10 +22,7 @@ class ShareIndexItem extends React.Component {
         this.props.updateDocPermission( {id: perm.id, doc_id: perm.doc_id, user_id: perm.user_id, permission_type: "view"})
     }
 
-
-
     render ()  {
-
         const { perm, doc } = this.props
         return (
             <div className="user-share" onClick={e => e.stopPropagation()}>
